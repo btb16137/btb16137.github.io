@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Hexo-admin安装配置 - btb16137&#39;s blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 但行好事，莫问前程 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>btb16137</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Hexo的配置添加"><span class="toc-text">一、Hexo的配置添加</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1添加favicon"><span class="toc-text">1.1添加favicon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2添加avatar"><span class="toc-text">1.2添加avatar</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3添加”分类-关于-标签”菜单"><span class="toc-text">1.3添加”分类/关于/标签”菜单</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Hexo-admin安装及问题"><span class="toc-text">二、Hexo-admin安装及问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1安装Hexo-admin"><span class="toc-text">2.1安装Hexo-admin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2遇到的问题"><span class="toc-text">2.2遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1插入图片不显示"><span class="toc-text">2.2.1插入图片不显示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2Deploy报错"><span class="toc-text">2.2.2Deploy报错</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-3如何快速启动编辑博客"><span class="toc-text">2.2.3如何快速启动编辑博客</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、参考链接"><span class="toc-text">三、参考链接</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 但行好事，莫问前程 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Hexo-admin安装配置
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-12-02 12:42:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content no-indent">
+        <h3 id="一、Hexo的配置添加"><a href="#一、Hexo的配置添加" class="headerlink" title="一、Hexo的配置添加"></a>一、Hexo的配置添加</h3><h4 id="1-1添加favicon"><a href="#1-1添加favicon" class="headerlink" title="1.1添加favicon"></a>1.1添加favicon</h4><p>正常的套路都是酱紫的：</p>
+<p><img src="\images\pasted-5.png" alt="upload successful"></p>
+<p>但是我的主题作者搞得很定制，偏偏是酱紫的：</p>
+<div align="left"><img width="660" src="\images\pasted-6.png"></div>  
+
+<h4 id="1-2添加avatar"><a href="#1-2添加avatar" class="headerlink" title="1.2添加avatar"></a>1.2添加avatar</h4><p>在根目录下打开_congif.yml，找到配置 avatar，增加图片路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /images/avatar.jpg</span><br></pre></td></tr></table></figure></p>
+<p>同上，在这里花了一些时间，这个主题也有自己的配置方式，最后也没搞清楚，应该是绝对路径和相对路径的问题，删除了.deploy和public文件夹之后，重新生成就好了。</p>
+<h4 id="1-3添加”分类-关于-标签”菜单"><a href="#1-3添加”分类-关于-标签”菜单" class="headerlink" title="1.3添加”分类/关于/标签”菜单"></a>1.3添加”分类/关于/标签”菜单</h4><p>在 hexo 文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure></p>
+<p>会在 source 文件夹生成 tags 文件夹，编辑里面的 index.md ，添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>同样的方法添加 categories；<br>添加 about 不需要修改 md 文件的 type。<br>因为 tags，categories 是特殊目录类型，about 只是简单的一个 md。  </p>
+<p>在_config.yml里面修改配置：<br>由于我使用的主题，作者改动太多，所以吃一堑长一智，我果然在说明书里找到了这个：</p>
+<div align="center"><img width="600" src="\images\pasted-2.png"></div>  
+
+<h3 id="二、Hexo-admin安装及问题"><a href="#二、Hexo-admin安装及问题" class="headerlink" title="二、Hexo-admin安装及问题"></a>二、Hexo-admin安装及问题</h3><h4 id="2-1安装Hexo-admin"><a href="#2-1安装Hexo-admin" class="headerlink" title="2.1安装Hexo-admin"></a>2.1安装Hexo-admin</h4><p>cd hexo根目录，运行以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-admin</span><br></pre></td></tr></table></figure></p>
+<p>启动hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>然后打开 <a href="http://localhost:4000/admin/" target="_blank" rel="noopener">http://localhost:4000/admin/</a> 就可以看到管理页面。</p>
+<h4 id="2-2遇到的问题"><a href="#2-2遇到的问题" class="headerlink" title="2.2遇到的问题"></a>2.2遇到的问题</h4><h5 id="2-2-1插入图片不显示"><a href="#2-2-1插入图片不显示" class="headerlink" title="2.2.1插入图片不显示"></a>2.2.1插入图片不显示</h5><p>在hexo-admin里面可以直接从剪贴板粘贴图片，它会自动拷贝图片到images文件夹下，十分方便，但是生成的语句有问题，导致图片不显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![upload successful](\\images\pasted-2.png\)</span><br></pre></td></tr></table></figure></p>
+<p>正确的格式应该是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![upload successful](\images\pasted-2.png)</span><br></pre></td></tr></table></figure></p>
+<p>如果想要调整图片大小和摆放位置就需要另一种写法了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=left&gt;&lt;img width=<span class="string">"130"</span>  src=<span class="string">"\images\pasted-0.png"</span>/&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="2-2-2Deploy报错"><a href="#2-2-2Deploy报错" class="headerlink" title="2.2.2Deploy报错"></a>2.2.2Deploy报错</h5><p>网上关于hexo-admin的问题并不多，但是不可否认，他是一个很好用的插件。<br>关于deploy，基本可以看到如下复制粘贴的回答，浪费了很多时间：</p>
+<div align="center"><img width="600" src="\images\pasted-3.png"></div>
+
+<p>但是其实真正的原因是因为命令并不对，除了在_config.yml里面配置command命令以外，需要新建的是.bat的文件和命令，因为网上的答案都是Linux的系统，命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp; hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>此外引用图片需要将_config.yml中的配置修改为true，如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="2-2-3如何快速启动编辑博客"><a href="#2-2-3如何快速启动编辑博客" class="headerlink" title="2.2.3如何快速启动编辑博客"></a>2.2.3如何快速启动编辑博客</h5><p>新建bat文件，命令如下，适当修改路径即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start http://localhost:4000/admin &amp; e: &amp; <span class="built_in">cd</span> blog &amp; hexo s</span><br></pre></td></tr></table></figure></p>
+<h4 id="三、参考链接"><a href="#三、参考链接" class="headerlink" title="三、参考链接"></a>三、参考链接</h4><p><a href="https://www.jianshu.com/p/68e727dda16d" target="_blank" rel="noopener">我没有给hexo-admin配置登陆密码，如果想看请点击</a></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
