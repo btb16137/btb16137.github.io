@@ -454,12 +454,12 @@ body {
 }
 @media (min-width: 1200px) {
   .container .header-inner {
-    width: 1160px;
+    width: 1130px;
   }
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 73%;
+    width: 1130PX;
   }
 }
 .main {
@@ -471,12 +471,12 @@ body {
 }
 @media (min-width: 1200px) {
   .container .main-inner {
-    width: 1160px;
+    width: 1130px;
   }
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 73%;
+    width: 1130PX;
   }
 }
 .footer {
@@ -493,12 +493,12 @@ body {
 }
 @media (min-width: 1200px) {
   .container .footer-inner {
-    width: 1160px;
+    width: 1130px;
   }
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 73%;
+    width: 1130PX;
   }
 }
 pre,
@@ -1295,7 +1295,7 @@ pre .javascript .function {
   .post-body .highlight {
     margin-left: 0px;
     margin-right: 0px;
-    padding: 0;
+    padding: 0px;
   }
   .post-body .highlight .gutter pre {
     padding-right: 10px;
@@ -1517,7 +1517,7 @@ pre .javascript .function {
   margin-left: 5px;
 }
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
+  margin: 3px 0 15px 0;
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
@@ -1566,7 +1566,7 @@ pre .javascript .function {
   }
 }
 .post-button {
-  margin-top: 40px;
+  margin: 15px;
 }
 .posts-expand .post-tags {
   margin-top: 40px;
@@ -1848,7 +1848,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d5ff8b;
+  background: #ff9d06;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2515,12 +2515,12 @@ ul.breadcrumb li+li:last-child {
 }
 @media (min-width: 1200px) {
   .header {
-    width: 1160px;
+    width: 1130px;
   }
 }
 @media (min-width: 1600px) {
   .header {
-    width: 73%;
+    width: 1130PX;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2970,13 +2970,13 @@ ul.breadcrumb li+li:last-child {
   text-overflow: ellipsis;
 }
 .content-wrap {
-  padding: initial;
+  padding: 0px;
   background: initial;
   box-shadow: initial;
   border-radius: initial;
 }
 .post-block {
-  padding: 40px;
+  padding: 0.5cm 20px 10px 20px;
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: initial;
@@ -2995,7 +2995,7 @@ ul.breadcrumb li+li:last-child {
   border-radius: initial;
 }
 .posts-expand {
-  padding-top: initial;
+  padding-top: 12px;
 }
 .post-nav-divider {
   width: 4%;
