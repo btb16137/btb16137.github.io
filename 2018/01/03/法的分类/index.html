@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-19.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-20.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-20.gif">
-<meta property="og:updated_time" content="2019-01-05T14:08:43.450Z">
+<meta property="og:updated_time" content="2019-01-07T12:51:01.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法的分类">
 <meta name="twitter:description" content="在机器学习或人工智能领域，人们首先会考虑合适的算法，目前有两种机器学习的分类方式，一、根据算法的学习方式的不同进行分类，二、根据数据类型和算法类似性进行分类，本文按照这个方式帮大家进行梳理。">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-05 22:08:43" itemprop="dateModified" datetime="2019-01-05T22:08:43+08:00">2019-01-05</time>
+                <time title="修改时间：2019-01-07 20:51:01" itemprop="dateModified" datetime="2019-01-07T20:51:01+08:00">2019-01-07</time>
               
             
           </span>
@@ -436,7 +436,8 @@
       
 
       
-        <p>在机器学习或人工智能领域，人们首先会考虑合适的算法，目前有两种机器学习的分类方式，一、根据算法的学习方式的不同进行分类，二、根据数据类型和算法类似性进行分类，本文按照这个方式帮大家进行梳理。<br><a id="more"></a><br>机器学习算法，或者说“算法工程师”这个职位名称里的“算法”，并不是计算机系本科课程《算法与数据结构》里那个算法。那门课里讲的，是排序、查找这类”确定性算法”；而这里我们说的，是用统计方法对数据进行建模的”概率性算法”。</p>
+        <p>在机器学习或人工智能领域，人们首先会考虑合适的算法，目前有两种机器学习的分类方式，一、根据算法的学习方式的不同进行分类，二、根据数据类型和算法类似性进行分类，本文按照这个方式帮大家进行梳理。<br><a id="more"></a></p>
+<p><strong>首先要明确的一点是</strong>机器学习算法，或者说“算法工程师”这个职位名称里的“算法”，并不是计算机系本科课程《算法与数据结构》里那个算法。那门课里讲的，是排序、查找这类”确定性算法”；而这里我们说的，是用统计方法对数据进行建模的”概率性算法”。</p>
 <h2 id="一、根据学习方式分类"><a href="#一、根据学习方式分类" class="headerlink" title="一、根据学习方式分类"></a>一、根据学习方式分类</h2><h3 id="1-1-监督式学习"><a href="#1-1-监督式学习" class="headerlink" title="1.1 监督式学习"></a>1.1 监督式学习</h3><p>在监督式学习下，输入数据被称为“训练数据”，每组训练数据都有一个明确的标识或结果，如对防垃圾邮件系统中的“垃圾邮件”、“非垃圾邮件”，对手写数字识别中的“1”、“2”、“3”、“4”等。在建立预测模型的时候，监督式学习建立一个学习过程，将预测结果与“训练数据”的实际结果进行比较，不断地调整预测模型，直到模型的预测结果达到一个预期的准确率。监督式学习的常见应用场景包括分类问题和回归问题。常见算法有线性回归/逻辑回归和反向传递神经网络，SVM。 </p>
 <h4 id="1-1-1-回归算法"><a href="#1-1-1-回归算法" class="headerlink" title="1.1.1 回归算法"></a>1.1.1 回归算法</h4><p>回归算法是试图采用对误差的衡量来探索变量之间的关系的一类算法。回归算法是统计机器学习的利器。常见的回归算法包括最小二乘法、逻辑回归、逐步式回归、多元自适应回归样条及本地散点平滑估计等。<br>在大部分机器学习课程中，回归算法都是介绍的第一个算法。原因有两个：一.回归算法比较简单，介绍它可以让人平滑地从统计学迁移到机器学习中。二.回归算法是后面若干强大算法的基石，如果不理解回归算法，无法学习那些强大的算法。回归算法有两个重要的子类：即线性回归和逻辑回归。</p>
 <p>线性回归</p>
@@ -444,17 +445,17 @@
 <p>计算机科学界专门有一个学科叫“数值计算”，专门用来提升计算机进行各类计算时的准确性和效率问题。例如，著名的“梯度下降”以及“牛顿法”就是数值计算中的经典算法，也非常适合来处理求解函数极值的问题。梯度下降法是解决回归模型中最简单且有效的方法之一。从严格意义上来说，由于后文中的神经网络和推荐算法中都有线性回归的因子，因此梯度下降法在后面的算法实现中也有应用。</p>
 <p>逻辑回归是一种与线性回归非常类似的算法，但是，从本质上讲，线型回归处理的问题类型与逻辑回归不一致。线性回归处理的是数值问题，也就是最后预测出的结果是数字，例如房价。而逻辑回归属于分类算法，也就是说，逻辑回归预测结果是离散的分类，例如判断这封邮件是否是垃圾邮件，以及用户是否会点击此广告等等。</p>
 <h4 id="1-1-2-基于实例的算法"><a href="#1-1-2-基于实例的算法" class="headerlink" title="1.1.2 基于实例的算法"></a>1.1.2 基于实例的算法</h4><p>基于实例的算法常常用来对决策问题建立模型，这样的模型常常先选取一批样本数据，然后根据某些近似性把新数据与样本数据进行比较，从而找到最佳的匹配。因此，基于实例的算法常常被称为“赢家通吃学习”或者“基于记忆的学习”。常见的算法包括k-Nearest Neighbor（kNN）、学习矢量量化（Learning Vector Quantization，LVQ）及自组织映射算法（Self-Organizing Map，SOM）等。</p>
-<h4 id="1-1-正则化算法"><a href="#1-1-正则化算法" class="headerlink" title="1.1 正则化算法"></a>1.1 正则化算法</h4><p>正则化算法是其他算法（通常是回归算法）的延伸，根据算法的复杂度对算法进行调整。正则化算法通常对简单模型予以奖励，而对复杂算法予以惩罚。常见的算法包括Ridge Regression、Least Absolute Shrinkage and Selection Operator（LASSO）及弹性网络（Elastic Net）等。</p>
-<h4 id="1-1-决策树算法"><a href="#1-1-决策树算法" class="headerlink" title="1.1 决策树算法"></a>1.1 决策树算法</h4><p>决策树算法根据数据的属性采用树状结构建立决策模型，常用来解决分类和回归问题。常见算法包括分类及回归树（Classification and Regression Tree，CART）、ID3（Iterative Dichotomiser 3）、C4.5、Chi-squared Automatic Interaction Detection（CHAID）、Decision Stump、随机森林（Random Forest）、多元自适应回归样条（MARS）及梯度推进机（GBM）等。</p>
-<h4 id="1-1-贝叶斯算法"><a href="#1-1-贝叶斯算法" class="headerlink" title="1.1 贝叶斯算法"></a>1.1 贝叶斯算法</h4><p>贝叶斯算法是基于贝叶斯定理的一类算法，主要用来解决分类和回归问题。常见的算法包括朴素贝叶斯算法、平均单依赖估计（Averaged One-Dependence Estimators，AODE）及Bayesian Belief Network（BBN）等。</p>
-<h4 id="1-1-基于核的算法"><a href="#1-1-基于核的算法" class="headerlink" title="1.1 基于核的算法"></a>1.1 基于核的算法</h4><p>基于核的算法中最著名的莫过于支持向量机（SVM）。基于核的算法是把输入数据映射到一个高阶的向量空间，在这些高阶向量空间里，有些分类或者回归问题能够更容易地解决。常见的基于核的算法包括支持向量机（Support Vector Machine，SVM）、径向基函数（Radial Basis Function，RBF）及线性判别分析（Linear Discriminate Analysis，LDA）等。</p>
+<h4 id="1-1。3-正则化算法"><a href="#1-1。3-正则化算法" class="headerlink" title="1.1。3 正则化算法"></a>1.1。3 正则化算法</h4><p>正则化算法是其他算法（通常是回归算法）的延伸，根据算法的复杂度对算法进行调整。正则化算法通常对简单模型予以奖励，而对复杂算法予以惩罚。常见的算法包括Ridge Regression、Least Absolute Shrinkage and Selection Operator（LASSO）及弹性网络（Elastic Net）等。</p>
+<h4 id="1-1-4-决策树算法"><a href="#1-1-4-决策树算法" class="headerlink" title="1.1.4 决策树算法"></a>1.1.4 决策树算法</h4><p>决策树算法根据数据的属性采用树状结构建立决策模型，常用来解决分类和回归问题。常见算法包括分类及回归树（Classification and Regression Tree，CART）、ID3（Iterative Dichotomiser 3）、C4.5、Chi-squared Automatic Interaction Detection（CHAID）、Decision Stump、随机森林（Random Forest）、多元自适应回归样条（MARS）及梯度推进机（GBM）等。</p>
+<h4 id="1-1-5-贝叶斯算法"><a href="#1-1-5-贝叶斯算法" class="headerlink" title="1.1.5 贝叶斯算法"></a>1.1.5 贝叶斯算法</h4><p>贝叶斯算法是基于贝叶斯定理的一类算法，主要用来解决分类和回归问题。常见的算法包括朴素贝叶斯算法、平均单依赖估计（Averaged One-Dependence Estimators，AODE）及Bayesian Belief Network（BBN）等。</p>
+<h4 id="1-1-6-基于核的算法"><a href="#1-1-6-基于核的算法" class="headerlink" title="1.1.6 基于核的算法"></a>1.1.6 基于核的算法</h4><p>基于核的算法中最著名的莫过于支持向量机（SVM）。基于核的算法是把输入数据映射到一个高阶的向量空间，在这些高阶向量空间里，有些分类或者回归问题能够更容易地解决。常见的基于核的算法包括支持向量机（Support Vector Machine，SVM）、径向基函数（Radial Basis Function，RBF）及线性判别分析（Linear Discriminate Analysis，LDA）等。</p>
 <p>支持向量机算法是诞生于统计学习界，同时在机器学习界大放光彩的经典算法。</p>
 <p>支持向量机算法从某种意义上来说是逻辑回归算法的强化：通过给予逻辑回归算法更严格的优化条件，支持向量机算法可以获得比逻辑回归更好的分类界线。但是如果没有某类函数技术，则支持向量机算法最多算是一种更好的线性分类技术。 </p>
 <p>但是，通过跟高斯“核”的结合，支持向量机可以表达出非常复杂的分类界线，从而达成很好的的分类效果。“核”事实上就是一种特殊的函数，最典型的特征就是可以将低维的空间映射到高维的空间。</p>
 <p><img src="\images\pasted-21.png" alt="upload successful"><br>我们如何在二维平面划分出一个圆形的分类界线？在二维平面可能会很困难，但是通过“核”可以将二维空间映射到三维空间，然后使用一个线性平面就可以达成类似效果。也就是说，二维平面划分出的非线性分类界线可以等价于三维平面的线性分类界线。于是，我们可以通过在三维空间中进行简单的线性划分就可以达到在二维平面中的非线性划分效果。</p>
 <p><img src="\images\pasted-21.gif" alt="upload successful"></p>
 <p>支持向量机是一种数学成分很浓的机器学习算法（相对的，神经网络则有生物科学成分）。在算法的核心步骤中，有一步证明，即将数据从低维映射到高维不会带来最后计算复杂性的提升。于是，通过支持向量机算法，既可以保持计算效率，又可以获得非常好的分类效果。因此支持向量机在90年代后期一直占据着机器学习中最核心的地位，基本取代了神经网络算法。直到现在神经网络借着深度学习重新兴起，两者之间才又发生了微妙的平衡转变。</p>
-<h4 id="2-1-人工神经网络算法"><a href="#2-1-人工神经网络算法" class="headerlink" title="2.1 人工神经网络算法"></a>2.1 人工神经网络算法</h4><p>人工神经网络算法模拟生物神经网络，是一类模式匹配算法，通常用于解决分类和回归问题。人工神经网络是机器学习的一个庞大的分支，有几百种不同的算法（深度学习就是其中的一类算法）。常见的人工神经网络算法包括感知器神经网络、反向传递、Hopfield网络、自组织映射及学习矢量量化等。<br>神经网络(也称之为人工神经网络，ANN)算法是80年代机器学习界非常流行的算法，不过在90年代中途衰落。现在，携着“深度学习”之势，神经网络重装归来，重新成为最强大的机器学习算法之一。</p>
+<h4 id="1-1-7-人工神经网络算法"><a href="#1-1-7-人工神经网络算法" class="headerlink" title="1.1.7 人工神经网络算法"></a>1.1.7 人工神经网络算法</h4><p>人工神经网络算法模拟生物神经网络，是一类模式匹配算法，通常用于解决分类和回归问题。人工神经网络是机器学习的一个庞大的分支，有几百种不同的算法（深度学习就是其中的一类算法）。常见的人工神经网络算法包括感知器神经网络、反向传递、Hopfield网络、自组织映射及学习矢量量化等。<br>神经网络(也称之为人工神经网络，ANN)算法是80年代机器学习界非常流行的算法，不过在90年代中途衰落。现在，携着“深度学习”之势，神经网络重装归来，重新成为最强大的机器学习算法之一。</p>
 <p>神经网络的诞生起源于对大脑工作机理的研究。早期生物界学者们使用神经网络来模拟大脑。机器学习的学者们使用神经网络进行机器学习的实验，发现在视觉与语音的识别上效果都相当好。在BP算法(加速神经网络训练过程的数值算法)诞生以后，神经网络的发展进入了一个热潮。BP算法的发明人之一是前面介绍的机器学习大牛Geoffrey Hinton(图1中的中间者)。</p>
 <p>具体说来，神经网络的学习机理是什么？简单来说，就是分解与整合。在著名的Hubel-Wiesel试验中，学者们研究猫的视觉分析机理是这样的。<br><img src="\images\pasted-19.png" alt="upload successful"><br>比方说，一个正方形，分解为四个折线进入视觉处理的下一层中。四个神经元分别处理一个折线。每个折线再继续被分解为两条直线，每条直线再被分解为黑白两个面。于是，一个复杂的图像变成了大量的细节进入神经元，神经元处理以后再进行整合，最后得出了看到的是正方形的结论。这就是大脑视觉识别的机理，也是神经网络工作的机理。</p>
 <p>让我们看一个简单的神经网络的逻辑架构。在这个网络中，分成输入层，隐藏层，和输出层。输入层负责接收信号，隐藏层负责对数据的分解与处理，最后的结果被整合到输出层。每层中的一个圆代表一个处理单元，可以认为是模拟了一个神经元，若干个处理单元组成了一个层，若干个层再组成了一个网络，也就是’神经网络’。<br><img src="\images\pasted-20.png" alt="upload successful"><br>在神经网络中，每个处理单元事实上就是一个逻辑回归模型，逻辑回归模型接收上层的输入，把模型的预测结果作为输出传输到下一个层次。通过这样的过程，神经网络可以完成非常复杂的非线性分类。</p>
@@ -462,14 +463,14 @@
 <p>右下方的方形中显示的是输入计算机的图像，方形上方的红色字样“answer”后面显示的是计算机的输出。左边的三条竖直的图像列显示的是神经网络中三个隐藏层的输出，可以看出，随着层次的不断深入，越深的层次处理的细节越低，例如层3基本处理的都已经是线的细节了。LeNet的发明人就是前文介绍过的机器学习的大牛Yann LeCun(图1右者)。</p>
 <p>进入90年代，神经网络的发展进入了一个瓶颈期。其主要原因是尽管有BP算法的加速，神经网络的训练过程仍然很困难。因此90年代后期支持向量机(SVM)算法取代了神经网络的地位。</p>
 <h3 id="1-2-非监督式学习"><a href="#1-2-非监督式学习" class="headerlink" title="1.2 非监督式学习"></a>1.2 非监督式学习</h3><p>在非监督式学习下，数据并不被特别标识，学习模型是为了推断出数据的一些内在结构。常见的应用场景包括降维算法，聚类算法和关联规则的学习即推荐算法等。常见算法包括Apriori算法和K-Means算法。</p>
-<h4 id="1-1-聚类算法"><a href="#1-1-聚类算法" class="headerlink" title="1.1 聚类算法"></a>1.1 聚类算法</h4><p>聚类算法通常按照中心点或者分层的方式对输入数据进行归并。所有的聚类算法都试图找到数据的内在结构，以便按照最大的共同点将数据进行归类。常见的聚类算法包括K-Means算法及期望最大化算法（EM）等。<br>前面的算法中的一个显著特征就是我的训练数据中包含了标签，训练出的模型可以对其他未知数据预测标签。在下面的算法中，训练数据都是不含标签的，而算法的目的则是通过训练，推测出这些数据的标签。这类算法有一个统称，即无监督算法(前面有标签的数据的算法则是有监督算法)。无监督算法中最典型的代表就是聚类算法。</p>
+<h4 id="1-2-1-聚类算法"><a href="#1-2-1-聚类算法" class="headerlink" title="1.2.1 聚类算法"></a>1.2.1 聚类算法</h4><p>聚类算法通常按照中心点或者分层的方式对输入数据进行归并。所有的聚类算法都试图找到数据的内在结构，以便按照最大的共同点将数据进行归类。常见的聚类算法包括K-Means算法及期望最大化算法（EM）等。<br>前面的算法中的一个显著特征就是我的训练数据中包含了标签，训练出的模型可以对其他未知数据预测标签。在下面的算法中，训练数据都是不含标签的，而算法的目的则是通过训练，推测出这些数据的标签。这类算法有一个统称，即无监督算法(前面有标签的数据的算法则是有监督算法)。无监督算法中最典型的代表就是聚类算法。</p>
 <p>让我们还是拿一个二维的数据来说，某一个数据包含两个特征。我希望通过聚类算法，给他们中不同的种类打上标签，我该怎么做呢？简单来说，聚类算法就是计算种群中的距离，根据距离的远近将数据划分为多个族群。</p>
 <p>聚类算法中最典型的代表就是K-Means算法。</p>
-<h4 id="1-1-关联规则学习"><a href="#1-1-关联规则学习" class="headerlink" title="1.1 关联规则学习"></a>1.1 关联规则学习</h4><p>关联规则学习通过寻找最能够解释数据变量之间关系的规则，来找出大量多元数据集中有用的关联规则。常见的算法包括Apriori算法和Eclat算法等。<br>推荐算法是目前业界非常火的一种算法，在电商界，如亚马逊，天猫，京东等得到了广泛的运用。推荐算法的主要特征就是可以自动向用户推荐他们最感兴趣的东西，从而增加购买率，提升效益。</p>
+<h4 id="1-2-2-关联规则学习"><a href="#1-2-2-关联规则学习" class="headerlink" title="1.2.2 关联规则学习"></a>1.2.2 关联规则学习</h4><p>关联规则学习通过寻找最能够解释数据变量之间关系的规则，来找出大量多元数据集中有用的关联规则。常见的算法包括Apriori算法和Eclat算法等。<br>推荐算法是目前业界非常火的一种算法，在电商界，如亚马逊，天猫，京东等得到了广泛的运用。推荐算法的主要特征就是可以自动向用户推荐他们最感兴趣的东西，从而增加购买率，提升效益。</p>
 <p>推荐算法有两个主要的类别：<br>一类是基于物品内容的推荐，是将与用户购买的内容近似的物品推荐给用户，这样的前提是每个物品都得有若干个标签，因此才可以找出与用户购买物品类似的物品，这样推荐的好处是关联程度较大，但是由于每个物品都需要贴标签，因此工作量较大。</p>
 <p>另一类是基于用户相似度的推荐，则是将与目标用户兴趣相同的其他用户购买的东西推荐给目标用户，例如小A历史上买了物品B和C，经过算法分析，发现另一个与小A近似的用户小D购买了物品E，于是将物品E推荐给小A。</p>
 <p>两类推荐都有各自的优缺点，在一般的电商应用中，一般是两类混合使用。推荐算法中最有名的算法就是协同过滤算法。</p>
-<h4 id="1-1-降低维度算法"><a href="#1-1-降低维度算法" class="headerlink" title="1.1 降低维度算法"></a>1.1 降低维度算法</h4><p>与聚类算法一样，降低维度算法试图分析数据的内在结构，不过降低维度算法通过非监督式学习，试图利用较少的信息来归纳或者解释数据。这类算法可以用于高维数据的可视化，或者用来简化数据以便监督式学习使用。常见的降低维度算法包括主成分分析（Principle Component Analysis，PCA）、偏最小二乘回归（Partial Least Square Regression，PLSR）、Sammon映射、多维尺度（Multi-Dimensional Scaling，MDS）及投影追踪（Projection Pursuit）等。</p>
+<h4 id="1-2-3-降低维度算法"><a href="#1-2-3-降低维度算法" class="headerlink" title="1.2.3 降低维度算法"></a>1.2.3 降低维度算法</h4><p>与聚类算法一样，降低维度算法试图分析数据的内在结构，不过降低维度算法通过非监督式学习，试图利用较少的信息来归纳或者解释数据。这类算法可以用于高维数据的可视化，或者用来简化数据以便监督式学习使用。常见的降低维度算法包括主成分分析（Principle Component Analysis，PCA）、偏最小二乘回归（Partial Least Square Regression，PLSR）、Sammon映射、多维尺度（Multi-Dimensional Scaling，MDS）及投影追踪（Projection Pursuit）等。</p>
 <p>降维算法也是一种无监督学习算法，其主要特征是将数据从高维降低到低维层次。在这里，维度其实表示的是数据的特征量的大小。<br>例如，房价包含房子的长、宽、面积与房间数量四个特征，也就是维度为4维的数据。可以看出来，长与宽事实上与面积表示的信息重叠了，例如面积=长 × 宽。通过降维算法我们就可以去除冗余信息，将特征减少为面积与房间数量两个特征，即从4维的数据压缩到2维。于是我们将数据从高维降低到低维，不仅利于表示，同时在计算上也能带来加速。</p>
 <p>降维算法的主要作用是压缩数据与提升机器学习其他算法的效率。通过降维算法，可以将具有几千个特征的数据压缩至若干个特征。另外，降维算法的另一个好处是数据的可视化，例如将5维的数据压缩至2维，然后可以用二维平面来可视。降维算法的主要代表是PCA算法(即主成分分析算法)。</p>
 <h3 id="1-3-半监督式学习"><a href="#1-3-半监督式学习" class="headerlink" title="1.3 半监督式学习"></a>1.3 半监督式学习</h3><p>在半监督式学习下，输入数据部分被标识，部分没有被标识。这种学习模型可以用来进行预测，但是模型首先需要学习数据的内在结构，以便合理地组织数据进行预测。其应用场景包括分类和回归。常见算法包括一些对常用监督式学习算法的延伸。这些算法首先试图对未标识的数据进行建模，然后在此基础上对标识的数据进行预测，如图论推理算法或拉普拉斯支持向量机等。</p>
@@ -593,7 +594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -614,7 +615,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -649,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、根据学习方式分类"><span class="nav-text">一、根据学习方式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-监督式学习"><span class="nav-text">1.1 监督式学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-回归算法"><span class="nav-text">1.1.1 回归算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-基于实例的算法"><span class="nav-text">1.1.2 基于实例的算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-正则化算法"><span class="nav-text">1.1 正则化算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-决策树算法"><span class="nav-text">1.1 决策树算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-贝叶斯算法"><span class="nav-text">1.1 贝叶斯算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-基于核的算法"><span class="nav-text">1.1 基于核的算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-人工神经网络算法"><span class="nav-text">2.1 人工神经网络算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-非监督式学习"><span class="nav-text">1.2 非监督式学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-聚类算法"><span class="nav-text">1.1 聚类算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-关联规则学习"><span class="nav-text">1.1 关联规则学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-降低维度算法"><span class="nav-text">1.1 降低维度算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-半监督式学习"><span class="nav-text">1.3 半监督式学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-强化学习"><span class="nav-text">1.4 强化学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、根据类似性分类"><span class="nav-text">二、根据类似性分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-深度学习算法"><span class="nav-text">2.1 深度学习算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-集成算法"><span class="nav-text">2.2 集成算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、根据学习方式分类"><span class="nav-text">一、根据学习方式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-监督式学习"><span class="nav-text">1.1 监督式学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-回归算法"><span class="nav-text">1.1.1 回归算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-基于实例的算法"><span class="nav-text">1.1.2 基于实例的算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1。3-正则化算法"><span class="nav-text">1.1。3 正则化算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4-决策树算法"><span class="nav-text">1.1.4 决策树算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-5-贝叶斯算法"><span class="nav-text">1.1.5 贝叶斯算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-6-基于核的算法"><span class="nav-text">1.1.6 基于核的算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-7-人工神经网络算法"><span class="nav-text">1.1.7 人工神经网络算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-非监督式学习"><span class="nav-text">1.2 非监督式学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-聚类算法"><span class="nav-text">1.2.1 聚类算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-关联规则学习"><span class="nav-text">1.2.2 关联规则学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-降低维度算法"><span class="nav-text">1.2.3 降低维度算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-半监督式学习"><span class="nav-text">1.3 半监督式学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-强化学习"><span class="nav-text">1.4 强化学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、根据类似性分类"><span class="nav-text">二、根据类似性分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-深度学习算法"><span class="nav-text">2.1 深度学习算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-集成算法"><span class="nav-text">2.2 集成算法</span></a></li></ol></li></ol></div>
             
 
           </div>
