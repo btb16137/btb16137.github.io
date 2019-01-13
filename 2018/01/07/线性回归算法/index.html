@@ -108,13 +108,13 @@
 
 
 
-  <meta name="description" content="介绍了什么是回归算法，并学习了什么是一般线性回归算法，并且用代码实现了算法">
+  <meta name="description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
 <meta name="keywords" content="回归算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一般线性回归算法(一)">
 <meta property="og:url" content="http://yoursite.com/2018/01/07/线性回归算法/index.html">
 <meta property="og:site_name" content="btb16137&#39;s blog">
-<meta property="og:description" content="介绍了什么是回归算法，并学习了什么是一般线性回归算法，并且用代码实现了算法">
+<meta property="og:description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/pasted-24.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-25.png">
@@ -135,13 +135,11 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-38.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-39.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-40.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-41.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-42.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-43.png">
-<meta property="og:updated_time" content="2019-01-09T15:44:39.409Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-44.png">
+<meta property="og:updated_time" content="2019-01-13T14:26:01.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一般线性回归算法(一)">
-<meta name="twitter:description" content="介绍了什么是回归算法，并学习了什么是一般线性回归算法，并且用代码实现了算法">
+<meta name="twitter:description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
 <meta name="twitter:image" content="http://yoursite.com/images/pasted-24.png">
 
 
@@ -421,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-09 23:44:39" itemprop="dateModified" datetime="2019-01-09T23:44:39+08:00">2019-01-09</time>
+                <time title="修改时间：2019-01-13 22:26:01" itemprop="dateModified" datetime="2019-01-13T22:26:01+08:00">2019-01-13</time>
               
             
           </span>
@@ -454,8 +452,8 @@
       
 
       
-        <p>介绍了什么是回归算法，并学习了什么是一般线性回归算法，并且用代码实现了算法<br><a id="more"></a>  </p>
-<h3 id="一、回归算法简介"><a href="#一、回归算法简介" class="headerlink" title="一、回归算法简介"></a>一、回归算法简介</h3><p>回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。线性回归算法包括很多种变形，本文主要讲解最基础的线性回归算法。在实际应用中，我们采用线性算法可以预测商品的价格，预测房子的房价等等，虽然线性回归算法比较简单，但是在实际中还是有很多的使用的。</p>
+        <p>线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。<br><a id="more"></a>  </p>
+<h3 id="一、回归算法简介"><a href="#一、回归算法简介" class="headerlink" title="一、回归算法简介"></a>一、回归算法简介</h3><p>回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。我们都知道线性回归是机器学习中最简单，使用范围也很广的一个算法，经典且实用，采用线性算法可以预测商品的价格，预测房子的房价等等。</p>
 <h3 id="二、数学原理介绍"><a href="#二、数学原理介绍" class="headerlink" title="二、数学原理介绍"></a>二、数学原理介绍</h3><h4 id="2-1-线性回归模型定义"><a href="#2-1-线性回归模型定义" class="headerlink" title="2.1 线性回归模型定义"></a>2.1 线性回归模型定义</h4><p>线性回归按变量数量的多少可以分为：一元线性回归（简单线性回归）和多元线性回归。<br>一元线性回归，也就是有一个自变量，其模型可以表示如下：<br><img src="\images\pasted-24.png" alt="upload successful">公式中参数解释如下:  </p>
 <ul>
 <li>x：自变量  </li>
@@ -464,48 +462,33 @@
 <li>β<sub>1</sub>：变量回归系数  </li>
 <li>ϵ：误差项的随机变量</li>
 </ul>
-<p>这些参数中，（β<sub>0</sub>+β<sub>1</sub>x）反映了由于x的变化而引起的y的线性变化；ϵ反映了除了x和y之间的线性关系之外的随机因素对y的影响，是不能由x和y之间的线性关系所解释的变异性。可以这么来理解ϵ：我们对y的预测是不可能达到与真实值完全一样的，这个真实值只有上帝知道，因此必然会产生误差，我们就用ϵ来表示这个无法预测的误差。<br>同样的，多元线性回归模型的表示如下：<br><img src="\images\pasted-25.png" alt="upload successful">我们通过引入了ϵ可以让模型达到完美状态，也就是理论的回归模型。但是我们要如何定义这个无法预测的误差项呢？为此，伟人们提出了一些假设条件：在统计学中，高斯－马尔可夫定理陈述的是：在误差零均值，同方差，且互不相关的线性回归模型中，回归系数的最佳无偏线性估计（BLUE）就是最小方差估计。总结一下，有如下几个主要的假设条件：</p>
+<p>这些参数中，（β<sub>0</sub>+β<sub>1</sub>x）反映了由于x的变化而引起的y的线性变化；ϵ反映了除了x和y之间的线性关系之外的随机因素对y的影响，是不能由x和y之间的线性关系所解释的变异性。可以这么来理解ϵ：我们对y的预测是不可能达到与真实值完全一样的，这个真实值只有上帝知道，因此必然会产生误差，我们就用ϵ来表示这个无法预测的误差。<br>同样的，多元线性回归模型的表示如下：<br><img src="\images\pasted-25.png" alt="upload successful">我们通过引入了ϵ可以让模型达到完美状态，也就是理论的回归模型。但是我们要如何定义这个无法预测的误差项呢？为此，伟人们提出了一些假设条件：在统计学中，高斯－马尔可夫定理陈述的是：在误差零均值，同方差，且互不相关的线性回归模型中，回归系数的<a href="https://baike.baidu.com/item/%E6%97%A0%E5%81%8F%E4%BC%B0%E8%AE%A1/3370664" target="_blank" rel="noopener">最佳无偏线性估计(BLUE)</a>就是<a href="https://baike.baidu.com/item/%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%81%8F%E4%BC%B0%E8%AE%A1/22676159?fr=aladdin" target="_blank" rel="noopener">最小方差估计</a>。总结一下，有如下几个主要的假设条件：</p>
 <ul>
 <li>误差项ϵ是一个期望为0的随机变量，即E(ϵ)=0（标准正态分布的期望为0）</li>
 <li>对于自变量的所有值，ϵ的方差σ^2都相同</li>
 <li>误差项ϵ是一个服从正态分布的随机变量，且相互独立，即ϵ~N(0,σ^2)  </li>
 </ul>
 <p>ϵ正态性意味着对于给定的自变量，因变量y也是一个服从正态分布的随机变量。根据回归模型的假设，有如下多元回归方程：<br><img src="\images\pasted-26.png" alt="upload successful"></p>
-<h4 id="2-2-线性回归的损失函数"><a href="#2-2-线性回归的损失函数" class="headerlink" title="2.2 线性回归的损失函数"></a>2.2 线性回归的损失函数</h4><p>线性回归的损失函数是平方损失函数，<br>在线性回归中，对于训练数据样本(x<sub>i</sub>,y<sub>i</sub>)，我们有如下的拟合直线：<br><img src="\images\pasted-22.png" alt="upload successful">构建的损失函数是：<br><img src="\images\pasted-23.png" alt="upload successful">表示每一个训练点(x<sub>i</sub>,y<sub>i</sub>)到拟合直线y<sub>i</sub>ˆ=θ⋅x<sub>i</sub>的竖直距离的平方和，通过最小化上面的损失函数可以求得拟合直线的最佳参数θ。<br><img src="\images\pasted-35.png" alt="upload successful">用平方而没用误差绝对值是因为：平方对于后续求导比较方便。公式里的1/2对损失函数没有影响，只是为了能抵消求导后的乘数2</p>
-<p><strong>推导损失函数</strong>  </p>
-<p>虽然我们得到了损失函数，但是如果从统计理论的角度出发来推导损失函数，我认为更有说服力，也能更好地理解线性回归模型，以及为什么开始要提出那些假设条件。根据上面假设条件：ϵ 服从均值为0，方差为σ的正态分布，且独立。<br>因此随机变量ϵ 的概率密度函数（正态分布的概率密度函数）为：<br><img width="350" src="\images\pasted-27.png">我们把前面的多元线性回归模型简单地变换一下，如下：<br><img width="450" src="\images\pasted-28.png">然后将得到的ϵ公式带入上面概率密度函数：<br><img width="450" src="\images\pasted-29.png">有了概率密度函数，我们用<a href="https://blog.csdn.net/saltriver/article/details/53364037" target="_blank" rel="noopener">最大似然估计：估计参数可能值，使样本发生概率最大</a>：<br><img width="450" src="\images\pasted-30.png">然后我们将似然函数取对数，这样可以将概率密度的乘法转换为加法：<br><img width="650" src="\images\pasted-31.png">再然后我们对似然函数取最大值，即最大化似然函数：<br><img width="450" src="\images\pasted-32.png">这样我们就从统计理论的角度得到了我们要找的损失函数，与我们最小化误差平方和得到的结果是一样的，也从侧面证实了前面提出假设的正确性。因此，线性回归模型的损失函数为：<br><img width="350" src="\images\pasted-33.png">公式里的1/2对损失函数没有影响，只是为了能抵消求导后的乘数2<br>通常我们将损失函数写成<img width="350" src="\images\pasted-34.png">其中m是样本的数量，这样可以消除样本数量不同对于C(θ)的影响。</p>
-<h4 id="2-3-线性回归的最佳参数θ估计"><a href="#2-3-线性回归的最佳参数θ估计" class="headerlink" title="2.3 线性回归的最佳参数θ估计"></a>2.3 线性回归的最佳参数θ估计</h4><blockquote>
+<h4 id="2-2-线性回归的损失函数"><a href="#2-2-线性回归的损失函数" class="headerlink" title="2.2 线性回归的损失函数"></a>2.2 线性回归的损失函数</h4><p>在推导的过程中采取两种不同的方式：一是从样本数据出发，二是从统计理论着手。最后我们会发现，采用两种不同的方式最后推导出的线性回归模型的损失函数都会殊途同归。</p>
+<font size="5" color="#63B8FF"><strong>从样本数据出发推导损失函数</strong> </font>
+
+
+<p>在线性回归中，对于训练数据样本(x<sub>i</sub>,y<sub>i</sub>)，我们有如下的拟合直线：<br><img src="\images\pasted-22.png" alt="upload successful">构建的损失函数是：<br><img src="\images\pasted-23.png" alt="upload successful">表示每一个训练点(x<sub>i</sub>,y<sub>i</sub>)到拟合直线y<sub>i</sub>ˆ=θ⋅x<sub>i</sub>的竖直距离的平方和，通过最小化上面的损失函数可以求得拟合直线的最佳参数θ。<br><img src="\images\pasted-35.png" alt="upload successful">用平方而没用误差绝对值是因为：平方对于后续求导比较方便。公式里的1/2对损失函数没有影响，只是为了能抵消求导后的乘数2</p>
+<font size="5" color="#63B8FF"><strong>从统计学理论出发推导损失函数</strong></font>
+
+<p>虽然我们得到了损失函数，但是如果从统计理论的角度出发来推导损失函数，我认为更有说服力，也能更好地理解线性回归模型，以及为什么开始要提出那些假设条件。根据上面假设条件：ϵ 服从均值为0，方差为σ的正态分布，且独立。<br>因此随机变量ϵ 的概率密度函数（正态分布的概率密度函数）为：<br><img width="350" src="\images\pasted-27.png">我们把前面的多元线性回归模型简单地变换一下，如下：<br><img width="450" src="\images\pasted-28.png">然后将得到的ϵ公式带入上面概率密度函数：<br><img width="450" src="\images\pasted-29.png">这里需要特别注意，我们不把θ认为是随机变量，而是有着我们未知的确定值，也就是把它看成我们需要去估计得到的值，也就是说上面的概率P(y(i)|x(i);θ) 意思是以θ为参数时，给定x(i)条件下y(i)的条件概率分布，有了概率密度函数，我们用<a href="https://blog.csdn.net/saltriver/article/details/53364037" target="_blank" rel="noopener">最大似然估计：估计参数可能值，使样本发生概率最大</a>：<br><img width="450" src="\images\pasted-30.png">∏”代表“求乘积”，上下添加的为求乘积的初始值和终止值，例如：符号下面可写“i=1”，上面写“n”，就代表后面的求积式子中的i从1开始一直加到n。即(1+D1/P1)(1+D2/P2)…… (1+Dn/Pn)，我们将似然函数取对数，这样可以将概率密度的乘法转换为加法：<img width="650" src="\images\pasted-31.png">再然后我们对似然函数取最大值，即最大化似然函数：<br><img width="450" src="\images\pasted-32.png">这样我们就从统计理论的角度得到了我们要找的损失函数，与我们最小化误差平方和得到的结果是一样的，也从侧面证实了前面提出假设的正确性。因此，线性回归模型的损失函数为：<br><img width="350" src="\images\pasted-33.png">公式里的1/2对损失函数没有影响，只是为了能抵消求导后的乘数2<br>通常我们将损失函数写成<img width="350" src="\images\pasted-34.png">其中m是样本的数量，这样可以消除样本数量不同对于C(θ)的影响，<font size="4" color="#63B8FF">h<sub>θ</sub>即为线性回归模型想要学习到的可以让损失函数为最小的一个值</font></p>
+<blockquote>
 <p>最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求得的数据与实际数据之间误差的平方和为最小。最小二乘法还可用于曲线拟合。其他一些优化问题也可通过最小化能量或最大化熵用最小二乘法来表达。</p>
 </blockquote>
-<font size="5" color="#63B8FF"><strong>最小二乘法</strong></font>
-
-<p>我们将代数方程组用矩阵来代替可以简化推导过程，以及代码实现。<br><img width="550" src="\images\pasted-36.png"><br>这里会涉及到矩阵求导的用法，详细介绍请看下面wiki的参考链接：<a href="https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities</a></p>
-<p><img width="450" src="\images\pasted-37.png"><br>我们令上面得到的公式等于0，即可得到最终的求解：<br><img src="\images\pasted-38.png" alt="upload successful"><br>Python中对于矩阵的各种操作可以通过Numpy库的一些方法来实现，非常方便。但在这个代码实现中需要注意：X矩阵不能为奇异矩阵，否则是无法求解矩阵的逆的。下面是手撸最小二乘法的代码实现部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standRegres</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = np.mat(xArr); yMat = np.mat(yArr).T</span><br><span class="line">    <span class="comment">#根据文中推导的公示计算回归系数</span></span><br><span class="line">    xTx = xMat.T * xMat </span><br><span class="line">    <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"矩阵为奇异矩阵,不能求逆"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I * (xMat.T*yMat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br><span class="line"><span class="comment">#xArr - x数据集</span></span><br><span class="line"><span class="comment">#yArr - y数据集</span></span><br><span class="line"><span class="comment">#ws - 回归系数</span></span><br></pre></td></tr></table></figure></p>
-<p><font size="5" color="#63B8FF"><strong>梯度下降法</strong></font></p>
-<blockquote>
+<p>到这里再结合最小二乘法的定义，我们不难发现为什么一般线性回归又被称为最小二乘算法，损失函数有很多种定义方式，但是一般线性回归算法的损失函数经过两种推导方式都是和最小二乘法相同的。</p>
+<h3 id="三、线性回归的最佳参数θ估计"><a href="#三、线性回归的最佳参数θ估计" class="headerlink" title="三、线性回归的最佳参数θ估计"></a>三、线性回归的最佳参数θ估计</h3><h4 id="3-1-正规解方程"><a href="#3-1-正规解方程" class="headerlink" title="3.1 正规解方程"></a>3.1 正规解方程</h4><p>把h<sub>θ</sub>作为参数，x/y均为已知值,损失函数是一个一元二次函数,显然a&gt;0,损失函数有极小值，我们将<a href="https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/5446029?fr=aladdin" target="_blank" rel="noopener">代数方程组用矩阵来代替</a>可以简化推导过程，以及代码实现。<br><img width="550" src="\images\pasted-36.png">这里会涉及到矩阵求导的用法，详细介绍请看下面wiki的参考链接：<a href="https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities</a><br><img width="450" src="\images\pasted-37.png">我们令上面的损失函数的求导公式等于0，即可得到令损失函数为最小值的h<sub>θ</sub>的值：<br><img src="\images\pasted-38.png" alt="upload successful"><br>Python中对于矩阵的各种操作可以通过Numpy库的一些方法来实现，非常方便。但在这个代码实现中需要注意：X矩阵不能为奇异矩阵，否则是无法求解矩阵的逆的。下面是手撸最小二乘法的代码实现部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standRegres</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = np.mat(xArr); yMat = np.mat(yArr).T</span><br><span class="line">    <span class="comment">#根据文中推导的公示计算回归系数</span></span><br><span class="line">    xTx = xMat.T * xMat </span><br><span class="line">    <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"矩阵为奇异矩阵,不能求逆"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I * (xMat.T*yMat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br><span class="line"><span class="comment">#xArr - x数据集</span></span><br><span class="line"><span class="comment">#yArr - y数据集</span></span><br><span class="line"><span class="comment">#ws - 回归系数</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-2-梯度下降法"><a href="#3-2-梯度下降法" class="headerlink" title="3.2 梯度下降法"></a>3.2 梯度下降法</h4><blockquote>
 <p>梯度下降是另一种常用的方法，可以用来求解凸优化问题。它的原理有别于最小二乘法，它是通过一步步迭代（与最小二乘法的区别在后面介绍）求解，不断逼近正确结果，直到与真实值之差小于一个阈值，从而得到最小化损失函数的模型参数值的</p>
 </blockquote>
 <p><img width="350" src="\images\pasted-39.png"><br>对于损失函数的梯度（即求偏导的过程），上面在最小二乘法部分已经给出推导过程和结果。不同的是，我们不会将公式等于0来求极值，而是带入上面梯度下面公式来迭代完成求解，以下是梯度下降矩阵形式的最终求解结果。<br><img width="350" src="\images\pasted-40.png"></p>
-<h4 id="2-4最小二乘法-vs-梯度下降法"><a href="#2-4最小二乘法-vs-梯度下降法" class="headerlink" title="2.4最小二乘法 vs 梯度下降法"></a>2.4最小二乘法 vs 梯度下降法</h4><p>通过上面推导，我们不难看出，二者都对损失函数的回归系数进行了求偏导，并且所得到的推导结果是相同的，那么究竟哪里不同呢？</p>
+<h4 id="3-3-最小二乘法-vs-梯度下降法"><a href="#3-3-最小二乘法-vs-梯度下降法" class="headerlink" title="3.3 最小二乘法 vs 梯度下降法"></a>3.3 最小二乘法 vs 梯度下降法</h4><p>通过上面推导，我们不难看出，二者都对损失函数的回归系数进行了求偏导，并且所得到的推导结果是相同的，那么究竟哪里不同呢？</p>
 <p>如果仔细观察，可以观察到：最小二乘法通过使推导结果等于0，从而直接求得极值，而梯度下降则是将推导结果带入迭代公式中，一步一步地得到最终结果。简单地说，最小二乘法是一步到位的，而梯度下降是一步步进行的。</p>
-<p>因而通过以上的异同点，总结如下</p>
-<p><strong>最小二乘法：</strong></p>
-<ul>
-<li>得到的是全局最优解，因为一步到位，直接求极值，因而步骤简单</li>
-<li>线性回归的模型假设，这是最小二乘方法的优越性前提，否则不能推出最小二乘是最佳（即方差最小）的无偏估计</li>
-</ul>
-<p><strong>梯度下降法：</strong></p>
-<ul>
-<li>得到的是局部最优解，因为是一步步迭代的，而非直接求得极值</li>
-<li>既可以用于线性模型，也可以用于非线性模型，没有特殊的限制和假设条件</li>
-</ul>
-<p>综上：<br>　　狭义的最小二乘方法，是线性假设下的一种有闭式解的参数求解方法，最终结果为全局最优；<br>　　梯度下降法，是假设条件更为广泛（无约束）的，一种通过迭代更新来逐步进行的参数优化方法，最终结果为局部最优；</p>
-<p>　　广义的最小二乘准则，是一种对于偏差程度的评估准则，与上两者不同。</p>
-<h3 id="三、线性回归手撕代码"><a href="#三、线性回归手撕代码" class="headerlink" title="三、线性回归手撕代码"></a>三、线性回归手撕代码</h3><p>上面我们已经手撸了最小二乘法和梯度下降法求解误差平方和损失函数的过程，即我们通过以上算法已经得到了我们想要的参数值。当然，我们也可以使用statsmodels或者sklearn库中已经被封装好了的模型来进行预测。不过，为了更好的了解模型，优化算法，而不仅仅是做一个调包侠，我们最好对每种算法都自己实现一遍。</p>
-<p>为了更好的说明整个建模到预测的过程，我们通过一个例子来详细说明。对于一个数据集，我们通过自己手撸的最小二乘法来建模，求解参数然后进行预测。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LeastSquared</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.xArr = []</span><br><span class="line">        self.yArr = []</span><br><span class="line">        self.params = []</span><br><span class="line">        self.y_predict = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,xArr,yArr)</span>:</span></span><br><span class="line">        self.xArr = xArr</span><br><span class="line">        self.yArr = yArr</span><br><span class="line">        xMat = np.mat(xArr)</span><br><span class="line">        yMat = np.mat(yArr).T</span><br><span class="line">        xTx = xMat.T*xMat</span><br><span class="line">        <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">            print(<span class="string">'矩阵为奇异矩阵'</span>)</span><br><span class="line">        params = xTx.I*(xMat.T*yMat)</span><br><span class="line">        self.params = params</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,x_new)</span>:</span></span><br><span class="line">        y_predict = x_new*self.params</span><br><span class="line">        self.y_predict = y_predict</span><br><span class="line">        <span class="keyword">return</span> y_predict</span><br></pre></td></tr></table></figure></p>
-<p>可以看到这是一个简单的二维平面，蓝色代表一个变量X和因变量Y的散点图，红色是我们通过最小二乘法拟合出来的直线。如果是多自变量，那么拟合结果将是一个平面，或者超平面。使用这个模型，我们就能对未知的X值进行预测。<br><img width="450" src="\images\pasted-41.png"><br>然后，我们在x的范围内再取10个随机数，并进行预测感受一下。<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成最小二乘法类</span></span><br><span class="line">xArr, yArr = loadDataSet(<span class="string">'ex0.txt'</span>)</span><br><span class="line">ls = LeastSquared()</span><br><span class="line">ls.fit(xArr,yArr) <span class="comment">#训练模型</span></span><br><span class="line">y_predict = ls.predict(xArr) <span class="comment">#预测模型</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在x范围内，随机生成10个新的x值</span></span><br><span class="line">x_min = np.min(np.array(xArr)[:,<span class="number">1</span>])</span><br><span class="line">x_max = np.max(np.array(xArr)[:,<span class="number">1</span>])</span><br><span class="line">x_random = np.random.uniform(x_min,x_max,[<span class="number">10</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">x_new = np.c_[np.ones(<span class="number">10</span>),x_random.flatten()]</span><br><span class="line">y_new = ls.predict(x_new)</span><br><span class="line">y_new = y_new.flatten().tolist()[<span class="number">0</span>]</span><br><span class="line">x_new = x_random.flatten().tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">n = len(xArr)                                                      </span><br><span class="line">xcord = [];ycord = [];y_hat = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n): </span><br><span class="line">    xcord.append(xArr[i][<span class="number">1</span>])</span><br><span class="line">    ycord.append(yArr[i])                    </span><br><span class="line">    y_hat.append(y_predict.tolist()[i][<span class="number">0</span>])</span><br><span class="line">fig = plt.figure()</span><br><span class="line"><span class="comment">#添加subplot</span></span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)                                            </span><br><span class="line"><span class="comment">#绘制样本点</span></span><br><span class="line">ax.plot(xcord, y_hat, c = <span class="string">'red'</span>)</span><br><span class="line">ax.scatter(xcord, ycord, s = <span class="number">20</span>, c = <span class="string">'blue'</span>,alpha = <span class="number">.5</span>)                </span><br><span class="line">ax.scatter(x_new,y_new, s=<span class="number">150</span>, c=<span class="string">'r'</span>, alpha = <span class="number">0.8</span>)</span><br><span class="line"><span class="comment">#绘制title</span></span><br><span class="line">plt.title(<span class="string">'LeastSquareMethod'</span>)                                                </span><br><span class="line">plt.xlabel(<span class="string">'X'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
-<p><img width="450" src="\images\pasted-42.png"><br>这时我们看到，生成的10个随机数都在我们的拟合直线上，对应的y值就是我们的预测值。同样的，我们也手撸了梯度下降算法进行的求解过程，二者得到的结果参数几乎相等。二者可视化效果如下所示（可以看到两个拟合直线是重合的，红色和绿色）：<br><img width="450" src="\images\pasted-43.png"><br>二者所得参数对比如下，其中梯度下降迭代了500次，可以看到参数结果是几乎一样的。<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#最小二乘法</span></span><br><span class="line">ls.params</span><br><span class="line">&gt;&gt;matrix([[<span class="number">3.00774324</span>],</span><br><span class="line">         [<span class="number">1.69532264</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#梯度下降法，迭代500次</span></span><br><span class="line">gd.params</span><br><span class="line">&gt;&gt;matrix([[<span class="number">3.00758726</span>],</span><br><span class="line">         [<span class="number">1.69562035</span>]])</span><br></pre></td></tr></table></figure></p>
-<h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>本篇主要介绍了线性回归的前几个部分：模型定义假设，模型参数估计，模型预测。但是预测完模型之后，我们并不知道结果时好时坏，并且我们也不知道开始的假设是否成立，这些内容涉及模型拟合优度，模型假设检验，和模型诊断，将在下一篇进行介绍。</p>
+<p>因而通过以上的异同点，总结如下：<br><img src="\images\pasted-44.png" alt="upload successful">吴恩达建议，N&gt;10000时，使用梯度下降法，N&lt;10000时，使用normal equation</p>
 
       
     </div>
@@ -542,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/04/Untitled/" rel="next" title="什么是算法工程师">
-                <i class="fa fa-chevron-left"></i> 什么是算法工程师
+              <a href="/2018/01/03/法的分类/" rel="next" title="机器学习算法的分类">
+                <i class="fa fa-chevron-left"></i> 机器学习算法的分类
               </a>
             
           </div>
@@ -551,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/13/ntitled/" rel="prev" title="线性回归">
+                线性回归 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -680,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、回归算法简介"><span class="nav-text">一、回归算法简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、数学原理介绍"><span class="nav-text">二、数学原理介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-线性回归模型定义"><span class="nav-text">2.1 线性回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-线性回归的损失函数"><span class="nav-text">2.2 线性回归的损失函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-线性回归的最佳参数θ估计"><span class="nav-text">2.3 线性回归的最佳参数θ估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4最小二乘法-vs-梯度下降法"><span class="nav-text">2.4最小二乘法 vs 梯度下降法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、线性回归手撕代码"><span class="nav-text">三、线性回归手撕代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、总结"><span class="nav-text">四、总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、回归算法简介"><span class="nav-text">一、回归算法简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、数学原理介绍"><span class="nav-text">二、数学原理介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-线性回归模型定义"><span class="nav-text">2.1 线性回归模型定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-线性回归的损失函数"><span class="nav-text">2.2 线性回归的损失函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、线性回归的最佳参数θ估计"><span class="nav-text">三、线性回归的最佳参数θ估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-正规解方程"><span class="nav-text">3.1 正规解方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-梯度下降法"><span class="nav-text">3.2 梯度下降法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-最小二乘法-vs-梯度下降法"><span class="nav-text">3.3 最小二乘法 vs 梯度下降法</span></a></li></ol></li></ol></div>
             
 
           </div>
