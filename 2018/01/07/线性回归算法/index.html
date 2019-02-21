@@ -133,10 +133,33 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-36.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-37.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-38.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-39.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-40.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-45.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-46.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-47.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-39.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-48.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-49.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-50.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-51.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-52.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-53.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-54.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-55.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-56.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-57.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-58.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-59.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-60.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-61.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-62.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-63.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-64.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-65.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-66.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-67.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-44.png">
-<meta property="og:updated_time" content="2019-01-13T14:26:01.461Z">
+<meta property="og:updated_time" content="2019-02-21T08:32:11.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一般线性回归算法(一)">
 <meta name="twitter:description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
@@ -419,7 +442,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-13 22:26:01" itemprop="dateModified" datetime="2019-01-13T22:26:01+08:00">2019-01-13</time>
+                <time title="修改时间：2019-02-21 16:32:11" itemprop="dateModified" datetime="2019-02-21T16:32:11+08:00">2019-02-21</time>
               
             
           </span>
@@ -482,10 +505,75 @@
 </blockquote>
 <p>到这里再结合最小二乘法的定义，我们不难发现为什么一般线性回归又被称为最小二乘算法，损失函数有很多种定义方式，但是一般线性回归算法的损失函数经过两种推导方式都是和最小二乘法相同的。</p>
 <h3 id="三、线性回归的最佳参数θ估计"><a href="#三、线性回归的最佳参数θ估计" class="headerlink" title="三、线性回归的最佳参数θ估计"></a>三、线性回归的最佳参数θ估计</h3><h4 id="3-1-正规解方程"><a href="#3-1-正规解方程" class="headerlink" title="3.1 正规解方程"></a>3.1 正规解方程</h4><p>把h<sub>θ</sub>作为参数，x/y均为已知值,损失函数是一个一元二次函数,显然a&gt;0,损失函数有极小值，我们将<a href="https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/5446029?fr=aladdin" target="_blank" rel="noopener">代数方程组用矩阵来代替</a>可以简化推导过程，以及代码实现。<br><img width="550" src="\images\pasted-36.png">这里会涉及到矩阵求导的用法，详细介绍请看下面wiki的参考链接：<a href="https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities</a><br><img width="450" src="\images\pasted-37.png">我们令上面的损失函数的求导公式等于0，即可得到令损失函数为最小值的h<sub>θ</sub>的值：<br><img src="\images\pasted-38.png" alt="upload successful"><br>Python中对于矩阵的各种操作可以通过Numpy库的一些方法来实现，非常方便。但在这个代码实现中需要注意：X矩阵不能为奇异矩阵，否则是无法求解矩阵的逆的。下面是手撸最小二乘法的代码实现部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standRegres</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = np.mat(xArr); yMat = np.mat(yArr).T</span><br><span class="line">    <span class="comment">#根据文中推导的公示计算回归系数</span></span><br><span class="line">    xTx = xMat.T * xMat </span><br><span class="line">    <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"矩阵为奇异矩阵,不能求逆"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I * (xMat.T*yMat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br><span class="line"><span class="comment">#xArr - x数据集</span></span><br><span class="line"><span class="comment">#yArr - y数据集</span></span><br><span class="line"><span class="comment">#ws - 回归系数</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="3-2-梯度下降法"><a href="#3-2-梯度下降法" class="headerlink" title="3.2 梯度下降法"></a>3.2 梯度下降法</h4><blockquote>
-<p>梯度下降是另一种常用的方法，可以用来求解凸优化问题。它的原理有别于最小二乘法，它是通过一步步迭代（与最小二乘法的区别在后面介绍）求解，不断逼近正确结果，直到与真实值之差小于一个阈值，从而得到最小化损失函数的模型参数值的</p>
+<h4 id="3-2-梯度下降法"><a href="#3-2-梯度下降法" class="headerlink" title="3.2 梯度下降法"></a>3.2 梯度下降法</h4><p>梯度下降的基本过程就和下山的场景很类似。<br>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！因为梯度的方向就是函数之变化最快的方向。  </p>
+<p>所以，我们重复利用这个方法，反复求取梯度，最后就能到达局部的最小值，这就类似于我们下山的过程。而求取梯度就确定了最陡峭的方向，也就是场景中测量方向的手段。那么为什么梯度的方向就是最陡峭的方向呢？接下来，我们从微分开始讲起<br><strong>微分</strong><br>看待微分的意义，可以有不同的角度，最常用的两种是：</p>
+<ul>
+<li>函数图像中，某点的切线的斜率</li>
+<li>函数的变化率</li>
+</ul>
+<p>几个微分的例子：<br><img src="\images\pasted-40.png" alt="upload successful"><br>上面的例子都是单变量的微分，当一个函数有多个变量的时候，就有了多变量的微分，即分别对每个变量进行求微分<br><img width="460" src="\images\pasted-45.png"><br><strong>梯度</strong><br>梯度实际上就是多变量微分的一般化。<br>下面这个例子：<br><img src="\images\pasted-46.png" alt="upload successful"><br>我们可以看到，梯度就是分别对每个变量进行微分，然后用逗号分割开，梯度是用&lt;&gt;包括起来，说明梯度其实一个向量。<br>梯度是微积分中一个很重要的概念，之前提到过梯度的意义</p>
+<p>在单变量的函数中，梯度其实就是函数的微分，代表着函数在某个给定点的切线的斜率<br>在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向</p>
+<p>这也就说明了为什么我们需要千方百计的求取梯度！我们需要到达山底，就需要在每一步观测到此时最陡峭的地方，梯度就恰巧告诉了我们这个方向。梯度的方向是函数在给定点上升最快的方向，那么梯度的反方向就是函数在给定点下降最快的方向，这正是我们所需要的。所以我们只要沿着梯度的方向一直走，就能走到局部的最低点！<br><img src="\images\pasted-47.png" alt="upload successful"></p>
+<blockquote>
+<p>梯度下降是另一种常用的方法，可以用来求解凸优化问题。如上所述，它是通过一步步迭代求解，不断逼近正确结果，直到与真实值之差小于一个阈值，从而得到最小化损失函数的模型参数值的。</p>
 </blockquote>
-<p><img width="350" src="\images\pasted-39.png"><br>对于损失函数的梯度（即求偏导的过程），上面在最小二乘法部分已经给出推导过程和结果。不同的是，我们不会将公式等于0来求极值，而是带入上面梯度下面公式来迭代完成求解，以下是梯度下降矩阵形式的最终求解结果。<br><img width="350" src="\images\pasted-40.png"></p>
+<p><img width="350" src="\images\pasted-39.png"><br>此公式的意义是：J是关于Θ的一个函数，我们当前所处的位置为Θ<sub>j</sub>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是α，走完这个段步长，就到达了下一个Θ<sub>j</sub>这个点！<br>下面就这个公式的几个常见的疑问：</p>
+<ul>
+<li>α是什么含义？<br>α在梯度下降算法中被称作为学习率或者步长，意味着我们可以通过α来控制每一步走的距离，以保证不要步子跨的太大扯着蛋，哈哈，其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！<img src="\images\pasted-48.png" alt="upload successful"></li>
+<li>为什么要梯度要乘以一个负号？<br>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，梯度的方向实际就是函数在此点上升最快的方向！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号</li>
+</ul>
+<p><strong>单变量函数的梯度下降的实例</strong><br>我们假设有一个单变量的函数<br><img src="\images\pasted-49.png" alt="upload successful"><br>函数的微分<br><img src="\images\pasted-50.png" alt="upload successful"><br>初始化，起点为<br><img src="\images\pasted-51.png" alt="upload successful"><br>学习率为<br><img src="\images\pasted-52.png" alt="upload successful"><br>我们开始进行梯度下降的迭代计算过程：<br><img src="\images\pasted-53.png" alt="upload successful"><br>如图，经过四次的运算，也就是走了四步，基本就抵达了函数的最低点，也就是山底<br><img src="\images\pasted-54.png" alt="upload successful"><br><strong>多变量函数的梯度下降</strong><br>我们假设有一个目标函数<br><img src="\images\pasted-55.png" alt="upload successful"><br>现在要通过梯度下降法计算这个函数的最小值。我们通过观察就能发现最小值其实就是 (0，0)点。但是接下来，我们会从梯度下降算法开始一步步计算到这个最小值！<br>我们假设初始的起点为：<br><img src="\images\pasted-56.png" alt="upload successful"><br>初始的学习率为：<br><img src="\images\pasted-57.png" alt="upload successful"><br>函数的梯度为：<br><img src="\images\pasted-58.png" alt="upload successful"><br>进行多次迭代：<br><img src="\images\pasted-59.png" alt="upload successful"><br>我们发现，已经基本靠近函数的最小值点<br><img src="\images\pasted-60.png" alt="upload successful"><br><strong>梯度下降算法的实现</strong><br>我们将用梯度下降法来拟合出这条直线！<br>首先，我们需要定义一个损失函数，在此我们选用前面推导出来的线性回归损失函数<br> <img src="\images\pasted-61.png" alt="upload successful"><br>此公式中</p>
+<ul>
+<li>m是数据集中点的个数</li>
+<li>½是一个常量，这样是为了在求梯度的时候，二次方乘下来就和这里的½抵消了，自然就没有多余的常数系数，方便后续的计算，同时对结果不会有影响</li>
+<li>y 是数据集中每个点的真实y坐标的值</li>
+<li>h 是我们的预测函数，根据每一个输入x，根据Θ 计算得到预测的y值，即</li>
+</ul>
+<p><img src="\images\pasted-62.png" alt="upload successful"><br>我们可以根据代价函数看到，代价函数中的变量有两个，所以是一个多变量的梯度下降问题，求解出代价函数的梯度，也就是分别对两个变量进行微分<br><img src="\images\pasted-63.png" alt="upload successful"><br>明确了代价函数和梯度，以及预测的函数形式。我们就可以开始编写代码了。但在这之前，需要说明一点，就是为了方便代码的编写，我们会将所有的公式都转换为矩阵的形式，python中计算矩阵是非常方便的，同时代码也会变得非常的简洁。</p>
+<p>为了转换为矩阵的计算，我们观察到预测函数的形式<br><img src="\images\pasted-64.png" alt="upload successful"><br>我们有两个变量，为了对这个公式进行矩阵化，我们可以给每一个点x增加一维，这一维的值固定为1，这一维将会乘到Θ0上。这样就方便我们统一矩阵化的计算<br><img src="\images\pasted-65.png" alt="upload successful"><br>然后我们将代价函数和梯度转化为矩阵向量相乘的形式<br><img src="\images\pasted-66.png" alt="upload successful"></p>
+<pre><code class="python"><span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="comment">#首先，我们需要定义数据集和学习率</span>
+<span class="comment"># Size of the points dataset.</span>
+m = <span class="number">20</span>
+
+<span class="comment"># Points x-coordinate and dummy value (x0, x1).</span>
+X0 = np.ones((m, <span class="number">1</span>))
+X1 = np.arange(<span class="number">1</span>, m+<span class="number">1</span>).reshape(m, <span class="number">1</span>)
+X = np.hstack((X0, X1))
+
+<span class="comment"># Points y-coordinate</span>
+y = np.array([
+    <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">8</span>, <span class="number">12</span>,
+    <span class="number">11</span>, <span class="number">13</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">21</span>
+]).reshape(m, <span class="number">1</span>)
+
+<span class="comment"># The Learning Rate alpha.</span>
+alpha = <span class="number">0.01</span>
+<span class="comment">#接下来我们以矩阵向量的形式定义代价函数和代价函数的梯度</span>
+<span class="function"><span class="keyword">def</span> <span class="title">error_function</span><span class="params">(theta, X, y)</span>:</span>
+    <span class="string">'''Error function J definition.'''</span>
+    diff = np.dot(X, theta) - y
+    <span class="keyword">return</span> (<span class="number">1.</span>/<span class="number">2</span>*m) * np.dot(np.transpose(diff), diff)
+
+<span class="function"><span class="keyword">def</span> <span class="title">gradient_function</span><span class="params">(theta, X, y)</span>:</span>
+    <span class="string">'''Gradient of the function J definition.'''</span>
+    diff = np.dot(X, theta) - y
+    <span class="keyword">return</span> (<span class="number">1.</span>/m) * np.dot(np.transpose(X), diff)
+<span class="comment">#最后就是算法的核心部分，梯度下降迭代计算</span>
+<span class="function"><span class="keyword">def</span> <span class="title">gradient_descent</span><span class="params">(X, y, alpha)</span>:</span>
+    <span class="string">'''Perform gradient descent.'''</span>
+    theta = np.array([<span class="number">1</span>, <span class="number">1</span>]).reshape(<span class="number">2</span>, <span class="number">1</span>)
+    gradient = gradient_function(theta, X, y)
+    <span class="keyword">while</span> <span class="keyword">not</span> np.all(np.absolute(gradient) &lt;= <span class="number">1e-5</span>):
+        theta = theta - alpha * gradient
+        gradient = gradient_function(theta, X, y)
+    <span class="keyword">return</span> theta
+<span class="comment">#当梯度小于1e-5时，说明已经进入了比较平滑的状态，类似于山谷的状态，这时候再继续迭代效果也不大了，所以这个时候可以退出循环！</span>
+optimal = gradient_descent(X, y, alpha)
+print(<span class="string">'optimal:'</span>, optimal)
+print(<span class="string">'error function:'</span>, error_function(optimal, X, y)[<span class="number">0</span>,<span class="number">0</span>])
+</code></pre>
+<p>运行代码，计算得到的结果如下<br><img src="\images\pasted-67.png" alt="upload successful"></p>
 <h4 id="3-3-最小二乘法-vs-梯度下降法"><a href="#3-3-最小二乘法-vs-梯度下降法" class="headerlink" title="3.3 最小二乘法 vs 梯度下降法"></a>3.3 最小二乘法 vs 梯度下降法</h4><p>通过上面推导，我们不难看出，二者都对损失函数的回归系数进行了求偏导，并且所得到的推导结果是相同的，那么究竟哪里不同呢？</p>
 <p>如果仔细观察，可以观察到：最小二乘法通过使推导结果等于0，从而直接求得极值，而梯度下降则是将推导结果带入迭代公式中，一步一步地得到最终结果。简单地说，最小二乘法是一步到位的，而梯度下降是一步步进行的。</p>
 <p>因而通过以上的异同点，总结如下：<br><img src="\images\pasted-44.png" alt="upload successful">吴恩达建议，N&gt;10000时，使用梯度下降法，N&lt;10000时，使用normal equation</p>
