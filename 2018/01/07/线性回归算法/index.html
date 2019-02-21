@@ -111,7 +111,7 @@
   <meta name="description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
 <meta name="keywords" content="回归算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一般线性回归算法(一)">
+<meta property="og:title" content="线性回归算法(一)">
 <meta property="og:url" content="http://yoursite.com/2018/01/07/线性回归算法/index.html">
 <meta property="og:site_name" content="btb16137&#39;s blog">
 <meta property="og:description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
@@ -133,6 +133,8 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-36.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-37.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-38.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-41.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-42.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-40.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-45.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-46.png">
@@ -157,11 +159,10 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-64.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-65.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-66.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-67.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-44.png">
-<meta property="og:updated_time" content="2019-02-21T08:32:11.445Z">
+<meta property="og:updated_time" content="2019-02-21T08:46:47.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一般线性回归算法(一)">
+<meta name="twitter:title" content="线性回归算法(一)">
 <meta name="twitter:description" content="线性回归算法包括很多种变形，本文主要讲解最基础的一般线性回归算法，而它的损失函数为最小二乘损失，大家也很熟悉，但是为什么要用最小二乘损失呢？正文将会说明为什么选最小二乘（按理说，我们有许多函数可以定义损失），并给出了两种解法并用代码实现。">
 <meta name="twitter:image" content="http://yoursite.com/images/pasted-24.png">
 
@@ -180,7 +181,7 @@
   };
 </script>
 
-  <title>一般线性回归算法(一) | btb16137's blog</title>
+  <title>线性回归算法(一) | btb16137's blog</title>
   
 
 
@@ -400,7 +401,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一般线性回归算法(一)
+          <h1 class="post-title" itemprop="name headline">线性回归算法(一)
               
             
           </h1>
@@ -442,7 +443,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 16:32:11" itemprop="dateModified" datetime="2019-02-21T16:32:11+08:00">2019-02-21</time>
+                <time title="修改时间：2019-02-21 16:46:47" itemprop="dateModified" datetime="2019-02-21T16:46:47+08:00">2019-02-21</time>
               
             
           </span>
@@ -505,6 +506,9 @@
 </blockquote>
 <p>到这里再结合最小二乘法的定义，我们不难发现为什么一般线性回归又被称为最小二乘算法，损失函数有很多种定义方式，但是一般线性回归算法的损失函数经过两种推导方式都是和最小二乘法相同的。</p>
 <h3 id="三、线性回归的最佳参数θ估计"><a href="#三、线性回归的最佳参数θ估计" class="headerlink" title="三、线性回归的最佳参数θ估计"></a>三、线性回归的最佳参数θ估计</h3><h4 id="3-1-正规解方程"><a href="#3-1-正规解方程" class="headerlink" title="3.1 正规解方程"></a>3.1 正规解方程</h4><p>把h<sub>θ</sub>作为参数，x/y均为已知值,损失函数是一个一元二次函数,显然a&gt;0,损失函数有极小值，我们将<a href="https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/5446029?fr=aladdin" target="_blank" rel="noopener">代数方程组用矩阵来代替</a>可以简化推导过程，以及代码实现。<br><img width="550" src="\images\pasted-36.png">这里会涉及到矩阵求导的用法，详细介绍请看下面wiki的参考链接：<a href="https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities</a><br><img width="450" src="\images\pasted-37.png">我们令上面的损失函数的求导公式等于0，即可得到令损失函数为最小值的h<sub>θ</sub>的值：<br><img src="\images\pasted-38.png" alt="upload successful"><br>Python中对于矩阵的各种操作可以通过Numpy库的一些方法来实现，非常方便。但在这个代码实现中需要注意：X矩阵不能为奇异矩阵，否则是无法求解矩阵的逆的。下面是手撸最小二乘法的代码实现部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standRegres</span><span class="params">(xArr,yArr)</span>:</span></span><br><span class="line">    xMat = np.mat(xArr); yMat = np.mat(yArr).T</span><br><span class="line">    <span class="comment">#根据文中推导的公示计算回归系数</span></span><br><span class="line">    xTx = xMat.T * xMat </span><br><span class="line">    <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"矩阵为奇异矩阵,不能求逆"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I * (xMat.T*yMat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br><span class="line"><span class="comment">#xArr - x数据集</span></span><br><span class="line"><span class="comment">#yArr - y数据集</span></span><br><span class="line"><span class="comment">#ws - 回归系数</span></span><br></pre></td></tr></table></figure></p>
+<p>线性回归如何实现呢<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LeastSquared</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.xArr = []</span><br><span class="line">        self.yArr = []</span><br><span class="line">        self.params = []</span><br><span class="line">        self.y_predict = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,xArr,yArr)</span>:</span></span><br><span class="line">        self.xArr = xArr</span><br><span class="line">        self.yArr = yArr</span><br><span class="line">        xMat = np.mat(xArr)</span><br><span class="line">        yMat = np.mat(yArr).T</span><br><span class="line">        xTx = xMat.T*xMat</span><br><span class="line">        <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">            print(<span class="string">'矩阵为奇异矩阵'</span>)</span><br><span class="line">        params = xTx.I*(xMat.T*yMat)</span><br><span class="line">        self.params = params</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,x_new)</span>:</span></span><br><span class="line">        y_predict = x_new*self.params</span><br><span class="line">        self.y_predict = y_predict</span><br><span class="line">        <span class="keyword">return</span> y_predict</span><br></pre></td></tr></table></figure></p>
+<p>可以看到这是一个简单的二维平面，蓝色代表一个变量X和因变量Y的散点图，红色是我们通过最小二乘法拟合出来的直线。如果是多自变量，那么拟合结果将是一个平面，或者超平面。使用这个模型，我们就能对未知的X值进行预测。<br><img width="450" src="\images\pasted-41.png"><br>然后，我们在x的范围内再取10个随机数，并进行预测感受一下。<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成最小二乘法类</span></span><br><span class="line">xArr, yArr = loadDataSet(<span class="string">'ex0.txt'</span>)</span><br><span class="line">ls = LeastSquared()</span><br><span class="line">ls.fit(xArr,yArr) <span class="comment">#训练模型</span></span><br><span class="line">y_predict = ls.predict(xArr) <span class="comment">#预测模型</span></span><br><span class="line"><span class="comment"># 在x范围内，随机生成10个新的x值</span></span><br><span class="line">x_min = np.min(np.array(xArr)[:,<span class="number">1</span>])</span><br><span class="line">x_max = np.max(np.array(xArr)[:,<span class="number">1</span>])</span><br><span class="line">x_random = np.random.uniform(x_min,x_max,[<span class="number">10</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">x_new = np.c_[np.ones(<span class="number">10</span>),x_random.flatten()]</span><br><span class="line">y_new = ls.predict(x_new)</span><br><span class="line">y_new = y_new.flatten().tolist()[<span class="number">0</span>]</span><br><span class="line">x_new = x_random.flatten().tolist()</span><br><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">n = len(xArr)                                                      </span><br><span class="line">xcord = [];ycord = [];y_hat = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n): </span><br><span class="line">    xcord.append(xArr[i][<span class="number">1</span>])</span><br><span class="line">    ycord.append(yArr[i])                    </span><br><span class="line">    y_hat.append(y_predict.tolist()[i][<span class="number">0</span>])</span><br><span class="line">fig = plt.figure()</span><br><span class="line"><span class="comment">#添加subplot</span></span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)                                            </span><br><span class="line"><span class="comment">#绘制样本点</span></span><br><span class="line">ax.plot(xcord, y_hat, c = <span class="string">'red'</span>)</span><br><span class="line">ax.scatter(xcord, ycord, s = <span class="number">20</span>, c = <span class="string">'blue'</span>,alpha = <span class="number">.5</span>)                </span><br><span class="line">ax.scatter(x_new,y_new, s=<span class="number">150</span>, c=<span class="string">'r'</span>, alpha = <span class="number">0.8</span>)</span><br><span class="line"><span class="comment">#绘制title</span></span><br><span class="line">plt.title(<span class="string">'LeastSquareMethod'</span>)                                                </span><br><span class="line">plt.xlabel(<span class="string">'X'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p><img width="450" src="\images\pasted-42.png"><br>这时我们看到，生成的10个随机数都在我们的拟合直线上，对应的y值就是我们的预测值。</p>
 <h4 id="3-2-梯度下降法"><a href="#3-2-梯度下降法" class="headerlink" title="3.2 梯度下降法"></a>3.2 梯度下降法</h4><p>梯度下降的基本过程就和下山的场景很类似。<br>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！因为梯度的方向就是函数之变化最快的方向。  </p>
 <p>所以，我们重复利用这个方法，反复求取梯度，最后就能到达局部的最小值，这就类似于我们下山的过程。而求取梯度就确定了最陡峭的方向，也就是场景中测量方向的手段。那么为什么梯度的方向就是最陡峭的方向呢？接下来，我们从微分开始讲起<br><strong>微分</strong><br>看待微分的意义，可以有不同的角度，最常用的两种是：</p>
 <ul>
@@ -530,50 +534,7 @@
 <li>h 是我们的预测函数，根据每一个输入x，根据Θ 计算得到预测的y值，即</li>
 </ul>
 <p><img src="\images\pasted-62.png" alt="upload successful"><br>我们可以根据代价函数看到，代价函数中的变量有两个，所以是一个多变量的梯度下降问题，求解出代价函数的梯度，也就是分别对两个变量进行微分<br><img src="\images\pasted-63.png" alt="upload successful"><br>明确了代价函数和梯度，以及预测的函数形式。我们就可以开始编写代码了。但在这之前，需要说明一点，就是为了方便代码的编写，我们会将所有的公式都转换为矩阵的形式，python中计算矩阵是非常方便的，同时代码也会变得非常的简洁。</p>
-<p>为了转换为矩阵的计算，我们观察到预测函数的形式<br><img src="\images\pasted-64.png" alt="upload successful"><br>我们有两个变量，为了对这个公式进行矩阵化，我们可以给每一个点x增加一维，这一维的值固定为1，这一维将会乘到Θ0上。这样就方便我们统一矩阵化的计算<br><img src="\images\pasted-65.png" alt="upload successful"><br>然后我们将代价函数和梯度转化为矩阵向量相乘的形式<br><img src="\images\pasted-66.png" alt="upload successful"></p>
-<pre><code class="python"><span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="comment">#首先，我们需要定义数据集和学习率</span>
-<span class="comment"># Size of the points dataset.</span>
-m = <span class="number">20</span>
-
-<span class="comment"># Points x-coordinate and dummy value (x0, x1).</span>
-X0 = np.ones((m, <span class="number">1</span>))
-X1 = np.arange(<span class="number">1</span>, m+<span class="number">1</span>).reshape(m, <span class="number">1</span>)
-X = np.hstack((X0, X1))
-
-<span class="comment"># Points y-coordinate</span>
-y = np.array([
-    <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">8</span>, <span class="number">12</span>,
-    <span class="number">11</span>, <span class="number">13</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">21</span>
-]).reshape(m, <span class="number">1</span>)
-
-<span class="comment"># The Learning Rate alpha.</span>
-alpha = <span class="number">0.01</span>
-<span class="comment">#接下来我们以矩阵向量的形式定义代价函数和代价函数的梯度</span>
-<span class="function"><span class="keyword">def</span> <span class="title">error_function</span><span class="params">(theta, X, y)</span>:</span>
-    <span class="string">'''Error function J definition.'''</span>
-    diff = np.dot(X, theta) - y
-    <span class="keyword">return</span> (<span class="number">1.</span>/<span class="number">2</span>*m) * np.dot(np.transpose(diff), diff)
-
-<span class="function"><span class="keyword">def</span> <span class="title">gradient_function</span><span class="params">(theta, X, y)</span>:</span>
-    <span class="string">'''Gradient of the function J definition.'''</span>
-    diff = np.dot(X, theta) - y
-    <span class="keyword">return</span> (<span class="number">1.</span>/m) * np.dot(np.transpose(X), diff)
-<span class="comment">#最后就是算法的核心部分，梯度下降迭代计算</span>
-<span class="function"><span class="keyword">def</span> <span class="title">gradient_descent</span><span class="params">(X, y, alpha)</span>:</span>
-    <span class="string">'''Perform gradient descent.'''</span>
-    theta = np.array([<span class="number">1</span>, <span class="number">1</span>]).reshape(<span class="number">2</span>, <span class="number">1</span>)
-    gradient = gradient_function(theta, X, y)
-    <span class="keyword">while</span> <span class="keyword">not</span> np.all(np.absolute(gradient) &lt;= <span class="number">1e-5</span>):
-        theta = theta - alpha * gradient
-        gradient = gradient_function(theta, X, y)
-    <span class="keyword">return</span> theta
-<span class="comment">#当梯度小于1e-5时，说明已经进入了比较平滑的状态，类似于山谷的状态，这时候再继续迭代效果也不大了，所以这个时候可以退出循环！</span>
-optimal = gradient_descent(X, y, alpha)
-print(<span class="string">'optimal:'</span>, optimal)
-print(<span class="string">'error function:'</span>, error_function(optimal, X, y)[<span class="number">0</span>,<span class="number">0</span>])
-</code></pre>
-<p>运行代码，计算得到的结果如下<br><img src="\images\pasted-67.png" alt="upload successful"></p>
+<p>为了转换为矩阵的计算，我们观察到预测函数的形式<br><img src="\images\pasted-64.png" alt="upload successful"><br>我们有两个变量，为了对这个公式进行矩阵化，我们可以给每一个点x增加一维，这一维的值固定为1，这一维将会乘到Θ0上。这样就方便我们统一矩阵化的计算<br><img src="\images\pasted-65.png" alt="upload successful"><br>然后我们将代价函数和梯度转化为矩阵向量相乘的形式<br><img src="\images\pasted-66.png" alt="upload successful"><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment">#首先，我们需要定义数据集和学习率</span></span><br><span class="line"><span class="comment"># Size of the points dataset.</span></span><br><span class="line">m = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Points x-coordinate and dummy value (x0, x1).</span></span><br><span class="line">X0 = np.ones((m, <span class="number">1</span>))</span><br><span class="line">X1 = np.arange(<span class="number">1</span>, m+<span class="number">1</span>).reshape(m, <span class="number">1</span>)</span><br><span class="line">X = np.hstack((X0, X1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Points y-coordinate</span></span><br><span class="line">y = np.array([</span><br><span class="line">    <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">8</span>, <span class="number">12</span>,</span><br><span class="line">    <span class="number">11</span>, <span class="number">13</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">21</span></span><br><span class="line">]).reshape(m, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># The Learning Rate alpha.</span></span><br><span class="line">alpha = <span class="number">0.01</span></span><br><span class="line"><span class="comment">#接下来我们以矩阵向量的形式定义代价函数和代价函数的梯度</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">error_function</span><span class="params">(theta, X, y)</span>:</span></span><br><span class="line">    <span class="string">'''Error function J definition.'''</span></span><br><span class="line">    diff = np.dot(X, theta) - y</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1.</span>/<span class="number">2</span>*m) * np.dot(np.transpose(diff), diff)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_function</span><span class="params">(theta, X, y)</span>:</span></span><br><span class="line">    <span class="string">'''Gradient of the function J definition.'''</span></span><br><span class="line">    diff = np.dot(X, theta) - y</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1.</span>/m) * np.dot(np.transpose(X), diff)</span><br><span class="line"><span class="comment">#最后就是算法的核心部分，梯度下降迭代计算</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_descent</span><span class="params">(X, y, alpha)</span>:</span></span><br><span class="line">    <span class="string">'''Perform gradient descent.'''</span></span><br><span class="line">    theta = np.array([<span class="number">1</span>, <span class="number">1</span>]).reshape(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">    gradient = gradient_function(theta, X, y)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> np.all(np.absolute(gradient) &lt;= <span class="number">1e-5</span>):</span><br><span class="line">        theta = theta - alpha * gradient</span><br><span class="line">        gradient = gradient_function(theta, X, y)</span><br><span class="line">    <span class="keyword">return</span> theta</span><br><span class="line"><span class="comment">#当梯度小于1e-5时，说明已经进入了比较平滑的状态，类似于山谷的状态，这时候再继续迭代效果也不大了，所以这个时候可以退出循环！</span></span><br><span class="line">optimal = gradient_descent(X, y, alpha)</span><br><span class="line">print(<span class="string">'optimal:'</span>, optimal)</span><br><span class="line">print(<span class="string">'error function:'</span>, error_function(optimal, X, y)[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">```  </span><br><span class="line">运行代码，计算得到的结果如下</span><br><span class="line">![upload successful](\images\pasted<span class="number">-67.</span>png)</span><br><span class="line">同样的，我们也手撸了梯度下降算法进行的求解过程，二者得到的结果参数几乎相等。二者可视化效果如下所示（可以看到两个拟合直线是重合的，红色和绿色）：</span><br><span class="line">&lt;img width=<span class="string">"450"</span>  src=<span class="string">"\images\pasted-43.png"</span>/&gt;</span><br><span class="line">二者所得参数对比如下，其中梯度下降迭代了<span class="number">500</span>次，可以看到参数结果是几乎一样的。</span><br><span class="line"> ```python</span><br><span class="line"><span class="comment">#最小二乘法</span></span><br><span class="line">ls.params</span><br><span class="line">&gt;&gt;matrix([[<span class="number">3.00774324</span>],</span><br><span class="line">         [<span class="number">1.69532264</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#梯度下降法，迭代500次</span></span><br><span class="line">gd.params</span><br><span class="line">&gt;&gt;matrix([[<span class="number">3.00758726</span>],</span><br><span class="line">         [<span class="number">1.69562035</span>]])</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-3-最小二乘法-vs-梯度下降法"><a href="#3-3-最小二乘法-vs-梯度下降法" class="headerlink" title="3.3 最小二乘法 vs 梯度下降法"></a>3.3 最小二乘法 vs 梯度下降法</h4><p>通过上面推导，我们不难看出，二者都对损失函数的回归系数进行了求偏导，并且所得到的推导结果是相同的，那么究竟哪里不同呢？</p>
 <p>如果仔细观察，可以观察到：最小二乘法通过使推导结果等于0，从而直接求得极值，而梯度下降则是将推导结果带入迭代公式中，一步一步地得到最终结果。简单地说，最小二乘法是一步到位的，而梯度下降是一步步进行的。</p>
 <p>因而通过以上的异同点，总结如下：<br><img src="\images\pasted-44.png" alt="upload successful">吴恩达建议，N&gt;10000时，使用梯度下降法，N&lt;10000时，使用normal equation</p>
@@ -622,10 +583,6 @@ print(<span class="string">'error function:'</span>, error_function(optimal, X, 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/13/ntitled/" rel="prev" title="线性回归">
-                线性回归 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -697,7 +654,7 @@ print(<span class="string">'error function:'</span>, error_function(optimal, X, 
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
