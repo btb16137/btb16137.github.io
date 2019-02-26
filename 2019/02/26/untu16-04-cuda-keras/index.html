@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="介绍了从Ubuntu装机分区，到安装英伟达显卡驱动，安装cuda，cudnn，tensorflow，keras以及调试问题的全过程，之后就可以愉快的开始深度学习了~请注意本文一定要看仔细路径和版本号！！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 16.04+nvidia+cuda+keras">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/untu16-04-cuda-keras/index.html">
+<meta property="og:site_name" content="btb16137&#39;s blog">
+<meta property="og:description" content="介绍了从Ubuntu装机分区，到安装英伟达显卡驱动，安装cuda，cudnn，tensorflow，keras以及调试问题的全过程，之后就可以愉快的开始深度学习了~请注意本文一定要看仔细路径和版本号！！！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/pasted-73.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-76.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-77.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-74.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-75.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-78.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-79.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-80.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-81.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-83.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-82.png">
+<meta property="og:updated_time" content="2019-02-26T10:26:16.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 16.04+nvidia+cuda+keras">
+<meta name="twitter:description" content="介绍了从Ubuntu装机分区，到安装英伟达显卡驱动，安装cuda，cudnn，tensorflow，keras以及调试问题的全过程，之后就可以愉快的开始深度学习了~请注意本文一定要看仔细路径和版本号！！！">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-73.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/untu16-04-cuda-keras/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ubuntu 16.04+nvidia+cuda+keras | btb16137's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">btb16137's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">但行好事，莫问前程</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/untu16-04-cuda-keras/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="btb16137">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="btb16137's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu 16.04+nvidia+cuda+keras
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-26 10:48:46 / 修改时间：18:26:16" itemprop="dateCreated datePublished" datetime="2019-02-26T10:48:46+08:00">2019-02-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>介绍了从Ubuntu装机分区，到安装英伟达显卡驱动，安装cuda，cudnn，tensorflow，keras以及调试问题的全过程，之后就可以愉快的开始深度学习了~请注意本文一定要看仔细<strong>路径和版本号！！！</strong><br><a id="more"></a>  </p>
+<h3 id="一、ubuntu装机"><a href="#一、ubuntu装机" class="headerlink" title="一、ubuntu装机"></a>一、ubuntu装机</h3><h4 id="1-1-下载镜像"><a href="#1-1-下载镜像" class="headerlink" title="1.1 下载镜像"></a>1.1 下载镜像</h4><p>首先需要在<a href="http://releases.ubuntu.com/xenial/" target="_blank" rel="noopener">下载ubuntu的镜像</a>,我下载的室desktop版本，如有需要请下载服务器版本，另外i386就是32位的ubuntu，如果cpu只支持32位的，不支持64位的，就下载这个。amd64就是64位的ubuntu，不要以为i386只能用于intel的cpu，amd64只能用于amd的cpu。别被字面意思所迷惑。</p>
+<p>为什么要分i386和64位的不同版本，就是因为cpu兼容问题。所以64位的推荐使用64版本，i386的不推荐使用，否则会出现很多奇怪的问题。觉得64位的软件比i386的少，是因为现在32位还是主流，但是在linux系统中的软件一般在编写的时候会同时照顾到i386和64位用户。当然，在源里面的软件一般还是32位的较多一点。可以在google或者百度里面搜索你要的软件名字+64，试试能不能找到deb包或者相应的源列表。</p>
+<p><img width="750" src="\images\pasted-73.png"></p>
+<h4 id="1-2-制作启动盘"><a href="#1-2-制作启动盘" class="headerlink" title="1.2 制作启动盘"></a>1.2 制作启动盘</h4><p>下载ultraiso工具，ultraiso工具可以用来制作U盘启动盘，官方下载地址<a href="http://www.ezbsystems.com/ultraiso" target="_blank" rel="noopener">http://www.ezbsystems.com/ultraiso</a>。</p>
+<ol>
+<li>下载完成后安装,准备一个4G以上的U盘并插入USB电脑接口<br><img width="750" src="\images\pasted-76.png"></li>
+<li>打开ultraiso，点击启动选项，然后点击写入硬盘映像选项，格式化，写入方式：USB-ZIP+，便携启动：写入新的硬盘主引导记录（MBR）-USB-ZIP+<br><img width="750" src="\images\pasted-77.png"></li>
+<li>把制作好的U盘启动盘插入需要安装操作系统的那台电脑上面之后，重新启动进入bios设置为U盘启动</li>
+</ol>
+<h4 id="1-3-安装系统以及分区"><a href="#1-3-安装系统以及分区" class="headerlink" title="1.3 安装系统以及分区"></a>1.3 安装系统以及分区</h4><p>前面没什么好说的，到了这里需要注意，选择其他选项自行分区</p>
+<p><img width="750" src="\images\pasted-74.png"></p>
+<p>分区的建议是这样的：  </p>
+<ul>
+<li><strong>/ </strong>　　<br>5G，根目录，主分区，空间起始位置，Ext4日志文件系统，存放系统命令和用户数据等<br><strong>/boot </strong><br>200MB，逻辑分区，空间起始位置，Ext4日志文件系统，存放与Linux启动相关的程序<br><strong>创建swap分区</strong><br>2048MB，逻辑分区，空间起始位置，交换空间，内存小于4G的为内存的2倍,否则和内存大小一致<br><strong>/home</strong><br>剩余空间，逻辑分区，空间起始位置，Ext4日志文件系统，存放普通用户的数据 </li>
+</ul>
+<p>操作界面如下，就不据太多例子了：<br><img width="750" src="\images\pasted-75.png"></p>
+<p>关于挂载点目录，说明以下3点：</p>
+<ol>
+<li><p>/boot分区不是必须的。对于陈旧的BOIS主板，无法识别1024个磁柱以外的硬盘数据，从而会导致Linux无法开机，此时需要专门划分100M左右的磁盘分区作为/boot分区，用以引导Linux正常启动；但随着硬件配置及Linux版本的提升，近几年生产的主板已经解决了上述问题，且划分/boot分区后，更新Linux内核几次后会导致分区容量不足，因此若非使用陈旧BOIS主板，不建议单独划分/boot分区。</p>
+</li>
+<li><p>swap分区也不是必须的。swap分区类似windows系统的虚拟内存，当实际内存不够用时，会使用swap分区作为虚拟内存来交换数据，其大小一般设置为实际内存的1-4倍。若安装时不创建swap分区，CentOS系统会自动创建与实际内存大小相当的分区作为swap分区，Ubuntu系统则不创建swap分区。</p>
+</li>
+<li><p>可为/usr/local、/opt、/home等目录单独创建分区。Linux系统在使用过程中，会不断安装软件，此时将/usr/local、/opt单独分区，可将新安装的软件放置于单独分区中，从而节约根目录所在分区的磁盘空间、优化系统目录的管理结构，尤其是当需要重新安装Linux系统时，可仅格式化根目录所在分区并将/usr/local、/opt指向原独立分区，以保存/usr/local、/opt目录中的原有数据；/home目录单独分区也有类似效果。在安装时不创建上述目录对应的单独分区也没有关系，可在系统安装完成后再将硬盘分区挂载到/usr/local、/opt、/home等目录，具体方法在后文会提到。</p>
+</li>
+</ol>
+<h4 id="1-4-删除之前的逻辑分区"><a href="#1-4-删除之前的逻辑分区" class="headerlink" title="1.4 删除之前的逻辑分区"></a>1.4 删除之前的逻辑分区</h4><p>如果有像我一样进入其他选项后，界面不为空，有之前的逻辑分区保留在里面的，请重新启动机器，进入ubuntu的安装选择界面，选择进入live系统模式。</p>
+<p>进入系统后，直接执行一下命令，列出逻辑分区信息的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo vgdisplay</span></span><br></pre></td></tr></table></figure></p>
+<p>然后执行<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vgremove <span class="tag">&lt;<span class="name">groupname</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这个<groupname>是由vgdisplay显示出来的lvm分区的名字，比如我的就是ubuntu-vg，然后删除，按Y即可，再次安装进入其他选项，界面就是空的，可以自由分区了。</groupname></p>
+<h4 id="1-5-更新安装源"><a href="#1-5-更新安装源" class="headerlink" title="1.5 更新安装源"></a>1.5 更新安装源</h4><p>更新安装源会提高你软件的安装速度，不然走外网会很慢，造成下载失败，开机后打开终端<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> /etc/apt/</span><br><span class="line"><span class="variable">$mv</span> source<span class="selector-class">.list</span> source<span class="selector-class">.list</span><span class="selector-class">.originbak</span> <span class="comment">//备份原来的源</span></span><br><span class="line"><span class="variable">$sudo</span> gedit sources.list</span><br></pre></td></tr></table></figure></p>
+<p>然后把下面的链接贴进去<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial main restricted universe multiverse</span><br><span class="line">deb http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-security main restricted universe multiverse</span><br><span class="line">deb http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-updates main restricted universe multiverse</span><br><span class="line">deb http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">##测试版源</span></span><br><span class="line">deb http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-proposed main restricted universe multiverse</span><br><span class="line"><span class="comment"># 源码</span></span><br><span class="line">deb-src http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial main restricted universe multiverse</span><br><span class="line">deb-src http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-security main restricted universe multiverse</span><br><span class="line">deb-src http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-updates main restricted universe multiverse</span><br><span class="line">deb-src http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">##测试版源</span></span><br><span class="line">deb-src http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/ubuntu/</span> xenial-proposed main restricted universe multiverse</span><br><span class="line"><span class="comment"># Canonical 合作伙伴和附加</span></span><br><span class="line">deb http:<span class="regexp">//</span>archive.canonical.com<span class="regexp">/ubuntu/</span> xenial partner</span><br><span class="line">deb http:<span class="regexp">//</span>extras.ubuntu.com<span class="regexp">/ubuntu/</span> xenial main</span><br></pre></td></tr></table></figure></p>
+<p>执行下面的命令（目的是利用上一步的新源，来更新你电脑中的软件）<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> apt-<span class="builtin-name">get</span> update</span><br><span class="line"><span class="variable">$sudo</span> apt-<span class="builtin-name">get</span> upgrade</span><br></pre></td></tr></table></figure></p>
+<p>如果有问题的话，就到图形界面配置即可，选择驱动也不什么的，总之很简单。</p>
+<h4 id="1-6-硬盘挂载以及常用分区"><a href="#1-6-硬盘挂载以及常用分区" class="headerlink" title="1.6 硬盘挂载以及常用分区"></a>1.6 硬盘挂载以及常用分区</h4><p>装机到上面基本就完成了，如果有需要一些软件，自行安装就可以了，下面列出来的是Linux系统下重要的分区及其作用，想要进一步了解Linux系统可以再深入研究：</p>
+<ul>
+<li><p>/bin :bin是binary的缩写;<br>/boot :存放启动Linux时使用的一些核心文件;<br>/root :root(超级管理员)的用户主目录;<br>/sbin :s就是Super User,存放系统管理员使用的系统管理程序;<br>/dev :dev是device(设备)的缩写;这个目录下是所有Linux的外部设备;<br>/etc :所有的系统管理所需要的配置文件和子目录;<br>/home :用户的主目录;<br>/lib :存放系统最基本的动态链接共享库;几乎所有的应用程序都需要用到这些共享库;<br>/lost+found :这个目录平时是空的,当系统不正常关机后,一些丢失文件会存放到该目录下;<br>/mnt :空目录,系统提供这个目录是让用户临时挂载别的文件系统;<br>/proc :虚拟目录,它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>/usr :这是个最庞大的目录,很多应用程序和文件几乎都放在这个目录下;包括以下内容:<br>/usr/X11R6 :存放X-Windows的目录;<br>/usr/bin :存放许多应用程序;<br>/usr/sbin :存放给超级用户使用的一些管理程序;<br>/usr/doc :存放Linux文档;<br>/usr/include :Linux下开发和编译应用程序需要的头文件;<br>/usr/lib :存放一些常用的动态链接共享库和静态档案库;<br>/usr/local :一般用户的/usr目录,在这安装软件最适合;<br>/usr/man :帮助文档目录;<br>/usr/src :Linux开放的源代码就存在这个目录;<br>/var/log分区，是系统日志记录分区，如果设立了这一单独的分区，这样即使系统的日志文件出现了问题，它们也不会影响到操作系统的主分区。  </p>
+</li>
+<li><p>/tmp分区，用来存放临时文件。这对于多用户系统或者网络服务器来说是有必要的。这样即使程序运行时生成大量的临时文件，或者用户对系统进行了错误的操作，文件系统的其它部分仍然是安全的。因为文件系统的这一部分仍然还承受着读写操作，所以它通常会比其它的部分更快地发生问题。  </p>
+</li>
+<li><p>/var :存放那些不断在扩充着的东西;为了保持/usr的相对稳定,那些经常被修改的目录可以放在这个目录下;其中,系统的日志文件就在/var/log目录中  hadoop生产环境/var/log最好单独分成一个100GB以上的分区，如果只是测试的话可以不单独给/var/log分区  </p>
+</li>
+</ul>
+<p>如果对于硬盘挂载有兴趣可以进一步百度或者看这个<a href="https://blog.csdn.net/hurry0808/article/details/78882111" target="_blank" rel="noopener">链接</a></p>
+<h4 id="1-7-删除软件以及文件夹"><a href="#1-7-删除软件以及文件夹" class="headerlink" title="1.7 删除软件以及文件夹"></a>1.7 删除软件以及文件夹</h4><p>你值得拥有<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> purge &lt;package&gt;</span><br><span class="line"><span class="comment">#不读取exfat的硬盘</span></span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install exfat-utils</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、英伟达显卡驱动"><a href="#二、英伟达显卡驱动" class="headerlink" title="二、英伟达显卡驱动"></a>二、英伟达显卡驱动</h3><p>首先请确保自己安装了英伟达显卡，应该不会有人装了AMD显卡还下载cuda吧。</p>
+<ol>
+<li><p>如果像我一样有强迫症的人，一定会先清除电脑上所有的安装记录，实在不行就重装系统就可以</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> <span class="builtin-name">remove</span> –purge cuda* </span><br><span class="line">sudo apt-<span class="builtin-name">get</span> <span class="builtin-name">remove</span> –purge nvidia*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把开源的nouveau显卡驱动加入黑名单并禁用用 nouveau 内核模块，修改启动以后的加载项文件/etc/modprobe.d/blacklist.conf</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># this one might not <span class="keyword">be </span>required for x86 <span class="number">32</span> <span class="keyword">bit </span>users. </span><br><span class="line"><span class="keyword">blacklist </span>amd76x_edac </span><br><span class="line"><span class="keyword">blacklist </span>vga16fb </span><br><span class="line"><span class="keyword">blacklist </span>nouveau </span><br><span class="line"><span class="keyword">blacklist </span>rivafb </span><br><span class="line"><span class="keyword">blacklist </span>nvidiafb </span><br><span class="line"><span class="keyword">blacklist </span>rivatv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先添加源，然后去官网查一下对应的驱动版本，命令行安装，之后重启系统</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:graphics-drivers/ppa</span><br><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install nvidia-367 </span><br><span class="line">sudo apt-get install mesa-common-dev </span><br><span class="line">sudo apt-get install freeglut3-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时可能会遇到无法关机或者开机长时间等待，不要着急，在开机后,执行以下命令，即可解决问题，方法来自<a href="https://askubuntu.com/questions/761541/ubuntu-server-16-04-wont-boot-after-installation" target="_blank" rel="noopener">ask ubuntu</a></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/default/grub</span><br><span class="line"><span class="comment">#change</span></span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"quiet splash"</span> </span><br><span class="line"><span class="comment">#to </span></span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"nomodeset"</span> </span><br><span class="line"><span class="comment">#Then add this line:</span></span><br><span class="line">GRUB_TERMINAL_INPUT=<span class="string">"console serial"</span></span><br><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在终端输入nvidia-smi即可得到下图<br><img width="750" src="\images\pasted-78.png"></p>
+</li>
+</ol>
+<h3 id="三、安装cuda"><a href="#三、安装cuda" class="headerlink" title="三、安装cuda"></a>三、安装cuda</h3><ol>
+<li>首先前往<a href="https://tensorflow.google.cn/install/source#gpu_support_2" target="_blank" rel="noopener">Tensorflow官网</a>了解一下tensorflow-gpu和cuda以及cudnn的对应版本<br><img width="750" src="\images\pasted-79.png"></li>
+<li>在<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">cuda官网(https://developer.nvidia.com/cuda-downloads)</a>下载CUDA，选择自己合适的版本。该链接界面只显示最新版本。若需要下载以前的版本，可在页面下方点击Legacy Releases，选择自己需要的其他版本。<br><img width="750" src="\images\pasted-80.png"></li>
+<li>下载完成后cd到下载目录执行以下命令<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">777</span> cuda_8<span class="number">.0</span><span class="number">.44</span>_linux.run </span><br><span class="line">sudo ./cuda_8<span class="number">.0</span><span class="number">.44</span>_linux.run</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>（注意：执行后会先出现一个声明，需要阅读到100%，同意声明后才会开始安装。）<br>安装时首先会有一系列提示让你确认，但是注意，有个让你选择是否安装nvidia361驱动时，一定要选择否，因为前面我们已经安装了更加新的nvidia384，所以这里不要选择安装。其余的都直接输入默认值或者选择是即可.</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Install</span> NVIDIA Accelerated <span class="keyword">Graphics</span> Driver for Linux-x86_64 <span class="number">361.62</span>?</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>可能出现的错误：</strong>安装cuda时可能有下面的信息</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Installing the CUDA Toolkit <span class="keyword">in</span> /usr/local/cuda-<span class="number">8.0</span> … </span><br><span class="line">Missing recommended library: libGLU<span class="selector-class">.so</span> </span><br><span class="line">Missing recommended library: libX11<span class="selector-class">.so</span> </span><br><span class="line">Missing recommended library: libXi<span class="selector-class">.so</span> </span><br><span class="line">Missing recommended library: libXmu.so</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因是缺少相关的依赖库,安装相应库就解决了：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install freeglut3-<span class="built_in">dev</span> build-essential libx11-<span class="built_in">dev</span> libxmu-<span class="built_in">dev</span> libxi-<span class="built_in">dev</span> libgl1-mesa-glx libglu1-mesa libglu1-mesa-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>装到最后会有一个warning，忽略即可<br><img width="750" src="\images\pasted-81.png"></p>
+</li>
+</ul>
+<ol start="4">
+<li>修改环境变量<br>打开~/.bashrc文件： sudo gedit ~/.bashrc 将以下内容写入到~/.bashrc尾部即可<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>网上的说法是输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin$&#123;PATH:+:$&#123;PATH&#125;&#125;</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当我输入  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第一条命令会导致，linux基础命令无法执行，所以需要抢救一下，<a href="https://zhidao.baidu.com/question/2116592127561248347.html" target="_blank" rel="noopener">方法在这里</a></p>
+</li>
+</ul>
+<ol start="5">
+<li>重启电脑，测试CUDA的samples<br>终端执行，如果显示一些关于GPU的信息，则说明安装成功。<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/usr/</span>local<span class="regexp">/cuda-8.0/</span>samples<span class="regexp">/1_Utilities/</span>deviceQuery </span><br><span class="line">make </span><br><span class="line">sudo .<span class="regexp">/deviceQuery</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><img width="750" src="\images\pasted-83.png"></li>
+</ul>
+<h3 id="四、安装cudnn"><a href="#四、安装cudnn" class="headerlink" title="四、安装cudnn"></a>四、安装cudnn</h3><p>cuDNN是GPU加速计算深层神经网络的库。 首先去官网<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a> 下载cuDNN，需要注册一个账号才能下载。<br><img width="750" src="\images\pasted-82.png"><br>这个直接参考官方文档：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xzvf cudnn-9.0-linux-x64-v7.tgz</span><br><span class="line">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include</span><br><span class="line">$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64</span><br><span class="line">$ sudo chmod a+r /usr/local/cuda/include/cudnn.h</span><br></pre></td></tr></table></figure></p>
+<p>最后<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ldconfig <span class="regexp">/usr/</span>local<span class="regexp">/cuda/</span>lib64</span><br></pre></td></tr></table></figure></p>
+<p>出现……不是符号链接，就可以了，如果有问题，请再百度</p>
+<h3 id="五、安装tensorflow和keras"><a href="#五、安装tensorflow和keras" class="headerlink" title="五、安装tensorflow和keras"></a>五、安装tensorflow和keras</h3><h4 id="5-1-更换python镜像源"><a href="#5-1-更换python镜像源" class="headerlink" title="5.1 更换python镜像源"></a>5.1 更换python镜像源</h4><p>基于国内网速的问题,我们直接pip安装包通常速度非常慢,而且经常会出现装到一半失败了的问题,既然这样,我们就要充分利用国内镜像的力量,节省时间,明显提高pip安装的效率.以下是我的操作分享,一共分为永久置换和暂时置换两种方法.</p>
+<ol>
+<li><p>创建pip.conf文件<br>运行以下命令:</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.pip</span></span><br><span class="line"><span class="comment"># 如果提示目录不存在的话,我们要自行创建一个,再进入目录</span></span><br><span class="line">mkdir ~<span class="string">/.pip</span></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/.pip</span></span><br><span class="line"><span class="comment"># 在.pip目录下创建一个pip.conf文件</span></span><br><span class="line">touch pip.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑pip.conf文件</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 打开pip.conf文件窗口</span></span><br><span class="line">sudo gedit ~/.pip/pip.conf</span><br><span class="line"><span class="meta"># 将以下内容复制到文件中</span></span><br><span class="line">[global]</span><br><span class="line">index-url = http:<span class="comment">//pypi.douban.com/simple</span></span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line"><span class="meta"># 这样就替换成功了,当然你也可以选择其他镜像源.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="5-2-安装tensorflow-gpu"><a href="#5-2-安装tensorflow-gpu" class="headerlink" title="5.2 安装tensorflow-gpu"></a>5.2 安装tensorflow-gpu</h4><p>执行<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> tensorflow-gpu</span><br><span class="line">pip <span class="keyword">install</span> keras</span><br></pre></td></tr></table></figure></p>
+<p>进入ipython，import进行测试即可</p>
+<h4 id="5-2-遇到的问题"><a href="#5-2-遇到的问题" class="headerlink" title="5.2 遇到的问题"></a>5.2 遇到的问题</h4><font size="6" color="#63B8FF"><strong>ImportError: libcublas.so.9.0: cannot open shared object file: No such file or directory</strong></font>
+
+<p>如果使用 pip install tensorflow-gpu 会遇到这个问题，因为我装了tensorflow-gpu 1.5版本，而我用的是cuda 8.0和cudnn6.0，1.5版本要求cuda 9.0，我的做法就是回滚：pip install tensorflow-gpu==1.4！解决方案来自<a href="https://blog.csdn.net/w5688414/article/details/79187499" target="_blank" rel="noopener">不知名的网友</a></p>
+<font size="6" color="#63B8FF"><strong>Tensorflow: ImportError: libcusolver.so.8.0</strong></font>
+
+<p>pip install tensorflow-gpu==1.4<br>配置正确环境变量即可，解决方案来自<a href="https://stackoverflow.com/questions/45375981/tensorflow-importerror-libcusolver-so-8-0" target="_blank" rel="noopener">stackoverflow</a></p>
+<font size="6" color="#63B8FF"><strong>安装tensorflow时出现libcudnn.so.6:file too short</strong></font>
+
+<p>在Ubuntu16.04 cuda8.0,cudnn6.0情况下安装tensorflow没问题，但在import的时候会出现libcudnn.so.6:file too short的问题，这是因为动态链接库没有链接上的问题。</p>
+<p>首次配置cuDNN时我是下载的cuDNN5.0版本，但是后来发现有很多问题是由于cuDNN版本不匹配引起的，因此又手动删除掉了cuDNN5.0的include和lib文件，重新下载cuDNN6.0版本。</p>
+<p>这里的libcudnn.so.5.1.10是固有文件，而libcudnn.so.5是libcudnn.so.5.1.10链接得到的动态文件，libcudnn.so是libcudnn.so.5链接得到的动态文件，首先需要将此文件和此文件动态连接的文件删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda/lib64/</span><br><span class="line">sudo rm -rf libcudnn.so libcudnn.so.5   #删除原有动态文件</span><br></pre></td></tr></table></figure>
+<p>然后将此文件动态连接的文件复制到原地址，再用命令行动态连接上就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp libcudnnn.so.6.0.21 /usr/local/cuda-8.0/lib64/  #重新拷贝cudnn文件到删除的地方</span><br><span class="line">ln -s libcudnnn.so.6.0.21 libcudnn.so.6            #更新软连接</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/07/线性回归算法/" rel="next" title="线性回归算法(一)">
+                <i class="fa fa-chevron-left"></i> 线性回归算法(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="btb16137">
+            
+              <p class="site-author-name" itemprop="name">btb16137</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、ubuntu装机"><span class="nav-text">一、ubuntu装机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-下载镜像"><span class="nav-text">1.1 下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-制作启动盘"><span class="nav-text">1.2 制作启动盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-安装系统以及分区"><span class="nav-text">1.3 安装系统以及分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-删除之前的逻辑分区"><span class="nav-text">1.4 删除之前的逻辑分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-更新安装源"><span class="nav-text">1.5 更新安装源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-硬盘挂载以及常用分区"><span class="nav-text">1.6 硬盘挂载以及常用分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-删除软件以及文件夹"><span class="nav-text">1.7 删除软件以及文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、英伟达显卡驱动"><span class="nav-text">二、英伟达显卡驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装cuda"><span class="nav-text">三、安装cuda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、安装cudnn"><span class="nav-text">四、安装cudnn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、安装tensorflow和keras"><span class="nav-text">五、安装tensorflow和keras</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-更换python镜像源"><span class="nav-text">5.1 更换python镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-安装tensorflow-gpu"><span class="nav-text">5.2 安装tensorflow-gpu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-遇到的问题"><span class="nav-text">5.2 遇到的问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-btb16137"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">btb16137</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":false}});</script></body>
+</html>
